@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+/*....................base................*/
+* {
+  box-sizing: border-box;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $base-bg;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 18px;
+  color: $font-color;
+}

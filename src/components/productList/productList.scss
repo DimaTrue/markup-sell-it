@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.section {
+  margin-top: 80px;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto 0;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .section {
+    margin-top: 180px;
+  }
+}

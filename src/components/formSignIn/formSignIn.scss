@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.form-block {
+  @extend %form-style;
+
+  input {
+    @extend %inputs-style;
+
+    &::-webkit-input-placeholder {
+      color: #fff;
+    }
+
+    &:focus {
+      border-bottom: 2px solid $border-color;
+    }
+
+  }
+
+  &__btn {
+    margin-top: 20px;
+    @extend %all-buttons;
+  }
+
+  a {
+    color: $btn-color;
+  }
+}

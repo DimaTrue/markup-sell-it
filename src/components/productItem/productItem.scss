@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.list-item {
+  width: 320px;
+  height: 250px;
+  background-color: $page-color;
+  margin: 13px;
+}
+
+.item-panel {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
