@@ -21,6 +21,8 @@ $font-size-base: 14px;
   padding-bottom: 5px;
   cursor: pointer;
   outline: none;
+  color: $btn-color;
+  background-color: $color-light;
 }
 
 %form-style {

@@ -15,7 +15,7 @@ class Login extends React.Component {
   renderRegistration = () => this.setState({activeComponent: 2});
 
   render() {
-    return <div className="section-left">
+    return <div className="main">
     <div className="bg">
       <img className="bg__img" src={bg} alt="bg" />
     </div>

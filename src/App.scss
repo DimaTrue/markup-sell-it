@@ -6,10 +6,6 @@
   border: none;
 }
 
-a {
-  text-decoration: none;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -18,4 +14,26 @@ body {
   font-weight: bold;
   font-size: 18px;
   color: $font-color;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto 0;
+}
+
+.form {
+  @extend %form-style;
+
+  &__btn {
+    @extend %all-buttons;
+
+    &:hover {
+      border-bottom: 3px solid $border-color;
+    }
+
+  }
 }

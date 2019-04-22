@@ -1,7 +1,6 @@
 @import '../../variables.scss';
 
-.form-block {
-  @extend %form-style;
+.form {
 
   input {
     @extend %inputs-style;
@@ -14,11 +13,6 @@
       border-bottom: 2px solid $border-color;
     }
 
-  }
-
-  &__btn {
-    margin-top: 20px;
-    @extend %all-buttons;
   }
 
   a {

@@ -1,12 +1,12 @@
 @import '../../variables.scss';
 
-/* .......................left section........................*/
-.section-left {
+.main {
   display: flex;
   height: 100vh;
   background-color: $page-color;
 }
 
+/* .......................left section........................*/
 .bg {
   flex-grow: 1;
   background-color: $bg-color;
@@ -41,8 +41,6 @@
   &__button {
     @extend %all-buttons;
     @extend %btns-shared;
-    background-color: $color-light;
-    color: $btn-color;
   
     &:hover {
       border-bottom: 3px solid $border-color;
