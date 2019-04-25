@@ -1,16 +1,22 @@
 import React from 'react';
 import './App.scss';
 import Login from './components/login/login';
+import NoMatch from './components/NoMatch/NoMatch';
+
 import ProductList from './components/productList/productList';
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 
 
 const App = () => (
   <BrowserRouter>
-    <div className="App">
-      <Route path='/' exact component={Login} />
-      <Route path='/productlist' component={ProductList} />
-    </div>
+    <Switch>
+      <div className="App">
+        <Route path='/login' exact component={Login} />
+        <Route path='/' exact component={ProductList} />
+        <Route component={NoMatch}/>
+      </div>
+    </Switch>
   </BrowserRouter>
 );
 
