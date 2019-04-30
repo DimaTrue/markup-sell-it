@@ -45,7 +45,7 @@ class ProductItemPage extends React.Component {
             <div className={style.container}>
               <h2 className={style.heading}>ProductItemPage</h2>
               <div className={style.product}>
-                <div>
+                <div className={style.outPic}>
                   <img className={style.pic} src={this.state.data} alt="product" />
                 </div>
                 <div className={style.description}>

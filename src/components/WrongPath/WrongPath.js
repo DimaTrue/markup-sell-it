@@ -5,7 +5,7 @@ import style from './WrongPath.module.scss';
 class WrongPath extends React.Component {
   
     state = { 
-      test: 1,
+      test: 0,
     };
  
   render() {
