@@ -5,26 +5,28 @@ import WrongPath from './components/WrongPath/WrongPath';
 import ProductList from './components/ProductListPage/ProductList/ProductList';
 import ProductItemPage from './components/ProductItemPage/ProductItemPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import axios from 'axios';
+//import axios from 'axios';
 import ErrorBoundary from './components/CommonComponents/ErrorBoundary/ErrorBoundary';
 import Loading from './components/CommonComponents/Loading/Loading';
-
+import { connect } from 'react-redux';
+import {fetchProducts} from './actions.js';
 
 class App extends React.Component {
   state = {
-    isLoading: true,
+    isLoading: false,
     isAuthentificated: false,
     data: [],
   }
 
   async componentDidMount() {
-    axios.get(`http://light-it-04.tk/api/posters/`, {
-      params: {
-        page: 1,
-      }
-    })
-      .then(res => this.setState({ data: res.data.data, isLoading: false, }))
-      .catch(error => console.log(error))
+    // axios.get(`http://light-it-04.tk/api/posters/`, {
+    //   params: {
+    //     page: 1,
+    //   }
+    // })
+    //   .then(res => this.setState({ data: res.data.data, isLoading: false, }))
+    //   .catch(error => console.log(error))
+    this.props.fetchProducts();
   }
 
 
@@ -48,7 +50,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route path='/login' component={() => <ErrorBoundary><Login login={this.login} /></ErrorBoundary>} />
-            <Route path='/' exact component={() => <ErrorBoundary><ProductList logout={this.logout} {...this.state} /> </ErrorBoundary>} />
+            <Route path='/' exact component={() => <ErrorBoundary><ProductList logout={this.logout} data={this.props.data} /> </ErrorBoundary>} />
             <Route path='/product/:id' component={ProductItemPage} />
             <Route component={() => <ErrorBoundary><WrongPath /></ErrorBoundary>} />
           </Switch>
@@ -58,4 +60,9 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStatetoProps = state => ({data: state.data});
+
+const mapDispatchtoProps = dispatch => ({
+  fetchProducts: () => dispatch(fetchProducts())
+})
+export default connect(mapStatetoProps, mapDispatchtoProps)(App);
