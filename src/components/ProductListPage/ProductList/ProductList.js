@@ -4,22 +4,46 @@ import Footer from '../../CommonComponents/Footer/Footer';
 import ProductItem from '../ProductItem/ProductItem';
 import Proptypes from 'prop-types';
 import style from './ProductList.module.scss';
+import Loading from '../../CommonComponents/Loading/Loading';
 
 
-const ProductList = ({ logout, isAuthentificated, data }) => (
-  <Fragment>
-    <Header logout={logout} isAuthentificated={isAuthentificated} />
-    <div className={style.section}>
-      <div className={style.container}>
-        <div className={style.productList}>
-          {data.map(({ images }, index) => <ProductItem key={index} img={images[0]} id={index} />)}
-        </div>
-      </div>
-    </div>
-    <Footer />
-  </Fragment>
-);
+class ProductList extends React.Component {
+
+  async componentDidMount() {
+    await this.props.fetchProducts();
+  }
+
+  render() {
+    const { isLoading } = this.props;
+    if (isLoading) {
+      return (
+        <Fragment>
+          <Header />
+          <Loading />
+          <Footer />
+        </Fragment>
+      )
+    } else {
+      return (
+        <Fragment>
+          <Header />
+          <div className={style.section}>
+            <div className={style.container}>
+              <div className={style.productList}>
+                {this.props.data.map(({ images, theme }, index) => <ProductItem key={index} img={images[0]} id={index} title={theme} />)}
+              </div>
+            </div>
+          </div>
+          <Footer />
+        </Fragment>
+      );
+    }
+  }
+}
+
 ProductList.propTypes = {
   data: Proptypes.array,
 };
+
+
 export default ProductList;

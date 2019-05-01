@@ -1,3 +1,5 @@
+import { FETCH_PRODUCTS } from '../actionTypes/fetchProducts';
+
 import axios from 'axios';
 
 export const fetchProducts = () =>
@@ -7,6 +9,6 @@ export const fetchProducts = () =>
                 page: 1,
             }
         })
-            .then(res => dispatch({ type: 'FETCH_PRODUCTS', payload: res.data.data }))
+            .then(res => dispatch({ type: FETCH_PRODUCTS, payload: res.data.data }))
             .catch(error => console.log(error))
     }

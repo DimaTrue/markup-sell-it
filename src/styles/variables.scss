@@ -25,6 +25,18 @@ $font-size-base: 14px;
   background-color: $color-light;
 }
 
+%return-btn {
+  color: $link-color;
+  padding: 15px;
+  border: 1px solid $link-color;
+  transition: ease-in-out 0.5s;
+}
+
+%hover-return-btn {
+  color: $bg-color;
+  background-color: $link-color;
+}
+
 %form-style {
   display: flex;
   flex-direction: column;

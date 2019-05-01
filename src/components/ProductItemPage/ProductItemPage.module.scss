@@ -1,68 +1,83 @@
 @import '../../styles/variables.scss';
 
 .section {
-  min-height: calc(100vh - 121px);
-  margin-top: 70px;
+  min-height: calc(100vh - 141px);
+  margin-top: 90px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 1440px;
+  max-width: 950px;
   margin: 0 auto 0;
-}
-
-.heading {
-  text-align: center;
-  color: $btn-color;
-  font-weight: bold;
 }
 
 .product {
   display: flex;
   justify-content: space-evenly;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .pic {
-  height: 400px;
-  max-width: 500px;
+  height: 450px;
+  width: 500px;
 }
 
 .description {
   display: flex;
   flex-direction: column;
-}
-
-.text {
-  max-width: 320px;
   color: $btn-color;
+  width: 40%;
 }
 
-.btn {
-  @extend %all-buttons;
-  @extend %btns-shared;
-  transition: ease-in-out 1s;
-  border: 1px solid $btn-color;
-  border-radius: 20px;
-  margin-top: 20px;
-  font-weight: bold;
+.userName {
+  color: $page-color;
 }
 
-.btn:hover {
-  color: $color-light;
-  background-color: $border-color;
+.price {
+  color: $border-color;
+  font-size: 25px;
+}
+
+.listBox {
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}
+
+.list {
+  margin-top: 0;
+  list-style-type: none;
+}
+
+.someLine {
+  margin: 0;
+}
+
+.lowerLink {
+  margin: 50px auto;
 }
 
 .link {
-  color: $link-color;
-  text-align: center;
-  margin-top: 30px;
+  @extend %return-btn;
+}
+
+.link:hover {
+  @extend %hover-return-btn;
 }
 
 @media screen and (max-width: 900px) {
- .section {
-   margin-top: 190px;
- }
+  .section {
+    margin-top: 190px;
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 860px) {
@@ -78,11 +93,11 @@
   .btn {
     margin: 20px auto;
   }
- }
+}
 
- @media screen and (max-width: 540px) {
+@media screen and (max-width: 540px) {
   .pic {
     max-width: 300px;
     max-height: 200px;
   }
- }
+}

@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import style from './WrongPath.module.scss';
 
 class WrongPath extends React.Component {
-  
-    state = { 
-      test: 0,
-    };
- 
+
+  state = {
+    test: 0,
+  };
+
   render() {
     // Simulate an error
-    if (this.state.test) {
+    const { test } = this.state;
+    if (test) {
       throw new Error('Simulate an error');
     }
 
@@ -23,9 +24,9 @@ class WrongPath extends React.Component {
           <span>4</span>
         </section>
         <div className={style.linkContainer}>
-        <Link to="/" className={style.moreLink}>Return to main page</Link>
+          <Link to="/" className={style.moreLink}>Return to main page</Link>
         </div>
-       </div>
+      </div>
     );
   }
 }

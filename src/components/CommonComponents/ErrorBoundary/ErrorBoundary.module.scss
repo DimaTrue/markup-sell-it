@@ -20,15 +20,11 @@
 }
 
 .link {
-  color: $link-color;
-  padding: 15px;
-  border: 1px solid $link-color;
-  transition: ease-in-out 2s;
+@extend %return-btn;
 }
 
 .link:hover {
-  color: $bg-color;
-  background-color: $link-color;
+@extend %hover-return-btn;
 }
 
 @media screen and (max-width: 700px) {

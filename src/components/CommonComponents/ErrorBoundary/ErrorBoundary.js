@@ -21,15 +21,16 @@ class ErrorBoundary extends React.Component {
     })
   }
   render() {
-    if (this.state.error !== null) {
+    const { error, errorInfo } = this.state;
+    if (error !== null) {
       return (
         <div className={style.errorPage}>
           <h1 className={style.heading}>Oops! Something went wrong!!!</h1>
           <img className={style.pic} src={errorPic} alt="error" />
           <details className={style.details} >
-            {this.state.error && this.state.error.toString()}
+            {error && error.toString()}
             <br />
-            {this.state.errorInfo.stackComponent}
+            {errorInfo.stackComponent}
           </details>
           <Link to="/" className={style.link}>Return to main page </Link>
         </div>
