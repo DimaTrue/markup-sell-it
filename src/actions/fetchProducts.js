@@ -9,6 +9,6 @@ export const fetchProducts = () =>
                 page: 1,
             }
         })
-            .then(res => dispatch({ type: FETCH_PRODUCTS, payload: res.data.data }))
+            .then(res => dispatch({ type: FETCH_PRODUCTS, payload: res.data.data, meta: {printLog: 'Hello'} }))
             .catch(error => console.log(error))
     }

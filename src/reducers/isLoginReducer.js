@@ -8,12 +8,12 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case LOG_IN:
       return {
-       isLogin: state.isLogin = true,
+       isLogin: true,
       };
 
     case LOG_OUT:
       return {
-        isLogin: state.isLogin = false,
+        isLogin: false,
       };
 
     default:
