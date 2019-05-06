@@ -1,117 +1,117 @@
 @import '../../styles/variables.scss';
 
 .section {
-  min-height: calc(100vh - 141px);
-  margin-top: 90px;
-  text-align: center;
+    min-height: calc(100vh - 141px);
+    margin-top: 90px;
+    text-align: center;
 }
 
 .heading {
-  color: $btn-color !important;
+    color: $btn-color !important;
 }
 
 .status {
-  color: $page-color !important;
-  font-size: 50px;
+    color: $page-color !important;
+    font-size: 50px;
 }
 
 .text {
-  color: $btn-color !important;
+    color: $btn-color !important;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  max-width: 950px;
-  margin: 0 auto 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 950px;
+    margin: 0 auto 0;
 }
 
 .product {
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 16px;
-  font-weight: normal;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 16px;
+    font-weight: normal;
 }
 
 .pic {
-  height: 450px;
-  width: 500px;
+    height: 450px;
+    width: 500px;
 }
 
 .description {
-  display: flex;
-  flex-direction: column;
-  color: $btn-color;
-  width: 40%;
+    display: flex;
+    flex-direction: column;
+    color: $btn-color;
+    width: 40%;
 }
 
 .userName {
-  color: $page-color;
+    color: $page-color;
 }
 
 .price {
-  color: $border-color;
-  font-size: 25px;
+    color: $border-color;
+    font-size: 25px;
 }
 
 .listBox {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .subtitle {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .list {
-  margin-top: 0;
-  list-style-type: none;
+    margin-top: 0;
+    list-style-type: none;
 }
 
 .someLine {
-  margin: 0;
+    margin: 0;
 }
 
 .lowerLink {
-  margin: 50px auto;
+    margin: 50px auto;
 }
 
 .link {
-  @extend %return-btn;
+    @extend %return-btn;
 }
 
 .link:hover {
-  @extend %hover-return-btn;
+    @extend %hover-return-btn;
 }
 
 @media screen and (max-width: 900px) {
-  .section {
-    margin-top: 190px;
-  }
+    .section {
+        margin-top: 190px;
+    }
 
-  .product {
-    flex-direction: column;
-    align-items: center;
-  }
+    .product {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width: 860px) {
-  .product {
-    flex-direction: column;
-    align-items: center;
-  }
+    .product {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .text {
-    margin-top: 30px;
-  }
+    .text {
+        margin-top: 30px;
+    }
 
-  .btn {
-    margin: 20px auto;
-  }
+    .btn {
+        margin: 20px auto;
+    }
 }
 
 @media screen and (max-width: 540px) {
-  .pic {
-    max-width: 300px;
-    max-height: 200px;
-  }
+    .pic {
+        max-width: 300px;
+        max-height: 200px;
+    }
 }

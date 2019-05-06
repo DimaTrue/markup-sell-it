@@ -4,8 +4,8 @@ import Login from './components/LoginPage/Login/Login';
 import Profile from './components/Profile/Profile';
 import PostForm from './components/CommonComponents/AddProductForm/AddProductForm';
 import WrongPath from './components/WrongPath/WrongPath';
-import ProductList from './containers/productList';
-import ProductItemPage from './containers/productItemPage';
+import ProductList from './containers/ProductList';
+import ProductItemPage from './containers/ProductItemPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ErrorBoundary from './components/CommonComponents/ErrorBoundary/ErrorBoundary';
 

@@ -13,6 +13,7 @@ class Profile extends React.Component {
 				<div className={style.section}>
 					<div className={style.container}>
 						<img className={style.pic} src={user} alt="user" />
+						<p className={style.name}> Kim Evans</p>
 					</div>
 				</div>
 				<Footer />
