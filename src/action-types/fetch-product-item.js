@@ -1,1 +1,0 @@
-export const FETCH_PRODUCT_ITEM = "FETCH_PRODUCT_ITEM";
