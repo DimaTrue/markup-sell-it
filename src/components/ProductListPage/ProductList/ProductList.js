@@ -14,8 +14,20 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const { isLoading } = this.props;
-    if (isLoading) {
+    const { isLoading, error } = this.props;
+    if (error !== null) {
+      return (
+        <Fragment>
+          <Header />
+          <div className={style.section}>
+            <h2 className={style.heading}>Error</h2>
+            <p className={style.status}>{error.response.status}</p>
+            <p className={style.text}>{error.response.statusText}</p>
+          </div>
+          <Footer />
+        </Fragment>
+      );
+    } else if (isLoading) {
       return (
         <Fragment>
           <Header />
@@ -30,7 +42,7 @@ class ProductList extends React.Component {
           <div className={style.section}>
             <div className={style.container}>
               <div className={style.productList}>
-                {this.props.data.map(({ images, theme }, index) => <ProductItem key={index} img={images[0]} id={index} title={theme} />)}
+                {this.props.data.map(({ images, theme, pk }, index) => <ProductItem key={index} img={images[0]} id={pk} title={theme} />)}
               </div>
             </div>
           </div>
@@ -42,8 +54,8 @@ class ProductList extends React.Component {
 }
 
 ProductList.propTypes = {
-  data: Proptypes.array,
+  isLoading: Proptypes.bool,
+  error: Proptypes.object,
 };
-
 
 export default ProductList;

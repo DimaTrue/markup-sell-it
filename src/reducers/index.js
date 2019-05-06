@@ -1,13 +1,12 @@
 import { combineReducers } from 'redux';
-
 import { reducer as formReducer } from 'redux-form';
-import productReducer from './productReducer';
-import productItemReducer from './productItemReducer';
-import isLoginReducer from './isLoginReducer';
+import products from './product-reducer';
+import user from './user-reducer';
+import authorizationReducer from './authorization-reducer';
 
 export default combineReducers({
-  products: productReducer,
-  productItem: productItemReducer,
-  isLogin: isLoginReducer,
+  products,
+  user,
+  isLogin: authorizationReducer,
   form: formReducer,
 });

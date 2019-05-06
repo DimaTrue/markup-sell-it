@@ -1,14 +1,17 @@
 import ProductItemPage from '../components/ProductItemPage/ProductItemPage';
-import { fetchProductItem } from '../actions/fetchProductItem';
 import { connect } from 'react-redux';
+import { FETCH_PRODUCT_ITEM } from '../action-types/products';
 
 const mapStateToProps = state => ({
-  data: state.productItem.data,
-  isLoading: state.productItem.isLoading,
+  productItem: state.products.productItem,
+  isLoadingItem: state.products.isLoadingItem,
+  errorItem: state.products.errorItem,
 });
 
+// itemIndex is a value of this.props.match.params.id of current product
+
 const mapDispatchToProps = dispatch => ({
-  fetchProductItem: (n) => dispatch(fetchProductItem(n))
+  fetchProductItem: (itemIndex) => dispatch({ type: FETCH_PRODUCT_ITEM, payload: itemIndex })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductItemPage);

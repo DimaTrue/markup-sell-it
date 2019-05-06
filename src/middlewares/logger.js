@@ -1,11 +1,7 @@
 export const logger = (store) => next => action => {
     if(action.meta && action.meta.printLog) {
-        //console.log('printLog', action.meta.printLog);
+        // console.log("dispatching", action);
+        // console.log("new state: ", store.getState());
     }
-
-    
-    let result = next(action);
-   
-    // console.log('next.state', store.getState());
-    // return result;
+    return next(action);
 }

@@ -1,0 +1,16 @@
+.section {
+    min-height: calc(100vh - 141px);
+    margin-top: 90px;
+  }
+
+.container {
+    max-width: 1140px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.pic {
+    height: 100px;
+    width: 100px;
+}

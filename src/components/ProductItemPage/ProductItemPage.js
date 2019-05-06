@@ -5,15 +5,30 @@ import Header from '../CommonComponents/Header/Header';
 import Footer from '../CommonComponents/Footer/Footer';
 import Loading from '../CommonComponents/Loading/Loading';
 import item from '../../img/item.jpg';
+import PropTypes from 'prop-types';
 
 class ProductItemPage extends React.Component {
 
   async componentDidMount() {
     this.props.fetchProductItem(this.props.match.params.id)
   }
+
   render() {
-    const { data, isLoading } = this.props;
-    if (isLoading) {
+    const { productItem, isLoadingItem, errorItem } = this.props;
+    if (errorItem !== null) {
+      return (
+        <Fragment>
+          <Header />
+          <div className={style.section}>
+            <h2 className={style.heading}>Error</h2>
+            <p className={style.status}>{errorItem.response.status}</p>
+            <p className={style.text}>{errorItem.response.statusText}</p>
+          </div>
+          <Footer />
+        </Fragment>
+      );
+    }
+    else if (isLoadingItem) {
       return (
         <Fragment>
           <Header />
@@ -29,14 +44,14 @@ class ProductItemPage extends React.Component {
             <div className={style.container}>
               <div className={style.product}>
                 <div>
-                  <img className={style.pic} src={data.images.length ? data.images[0].file : item} alt="product" />
+                  <img className={style.pic} src={productItem.images.length ? productItem.images[0].file : item} alt="product" />
                 </div>
                 <div className={style.description}>
-                  <h2 className={style.title}>{data.theme || `Some title text must be here<br />maybe second  line`}</h2>
+                  <h2 className={style.title}>{productItem.theme || `Some title text must be here<br />maybe second  line`}</h2>
                   <div>
-                    <strong>from</strong> <span className={style.userName} >Alis Kim</span> <span className={style.price}>Price: {data.price}$</span>
+                    <strong>from</strong> <span className={style.userName} >Alis Kim</span> <span className={style.price}>Price: {productItem.price}$</span>
                   </div>
-                  <p className={style.text}>{data.text || `Some description text from WYSIWYG editer`}</p>
+                  <p className={style.text}>{productItem.text || `Some description text from WYSIWYG editer`}</p>
                   <div>
                     Can be <strong>BOLD</strong> <i>italic</i>
                   </div>
@@ -64,6 +79,12 @@ class ProductItemPage extends React.Component {
       )
     }
   }
+}
+
+ProductItemPage.propTypes = {
+  productItem: PropTypes.object,
+  isLoadingItem: PropTypes.bool,
+  errorItem: PropTypes.object,
 }
 
 export default ProductItemPage;

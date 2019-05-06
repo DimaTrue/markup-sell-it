@@ -1,0 +1,54 @@
+@import '../../../styles/variables.scss';
+
+.section {
+    min-height: calc(100vh - 141px);
+    margin-top: 90px;
+    color: $btn-color;
+  }
+
+.container {
+    max-width: 1140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form {
+  @extend %form-style;
+  color: $btn-color;
+}
+
+.form:focus {
+  border-bottom: 2px solid $border-color;
+}
+
+.formInput {
+  @extend %inputs-style;
+  width: 250px;
+  color: $btn-color;
+  margin-top: 15px;
+  border-bottom: 2px solid $page-color;
+}
+
+.formInput::placeholder {
+  color: $btn-color;
+}
+
+.formButton {
+  @extend %all-buttons;
+  width: 150px;
+  margin-top: 15px;
+}
+
+.formButton:hover {
+  border-bottom: 3px solid $border-color;
+}
+
+
+@media screen and (max-width: 900px) {
+    .container {
+        margin-top: 250px;
+    }
+}

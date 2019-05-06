@@ -4,14 +4,12 @@ import errorPic from '../../../img/error.gif';
 import { Link } from 'react-router-dom';
 
 class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasError: false,
-      error: null,
-      errorInfo: null,
-    };
-  }
+
+  state = {
+    hasError: false,
+    error: null,
+    errorInfo: null,
+  };
 
   componentDidCatch(error, errorInfo) {
     this.setState({
@@ -20,6 +18,7 @@ class ErrorBoundary extends React.Component {
       errorInfo: errorInfo
     })
   }
+
   render() {
     const { error, errorInfo } = this.state;
     if (error !== null) {

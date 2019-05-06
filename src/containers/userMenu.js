@@ -1,6 +1,6 @@
 import UserMenu from '../components/CommonComponents/UserMenu/UserMenu';
 import { connect } from 'react-redux';
-import { logOut } from '../actions/isLogin';
+import { logOut } from '../actions/authorization';
 
 const mapStateToProps = state => ({
   isLogin: state.isLogin

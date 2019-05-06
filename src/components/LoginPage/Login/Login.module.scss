@@ -41,11 +41,13 @@
 .button {
   @extend %all-buttons;
   @extend %btns-shared;
+  margin-bottom: 0;
 }
 
 .button:hover {
   border-bottom: 3px solid $border-color;
 }
+
 
 .copy {
   position: absolute;

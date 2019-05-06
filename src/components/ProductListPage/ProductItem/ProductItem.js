@@ -3,6 +3,7 @@ import style from './ProductItem.module.scss';
 import { Link } from 'react-router-dom';
 import eye from '../../../img/eye.png';
 import item from '../../../img/item.jpg';
+import Proptypes from 'prop-types';
 
 const DEFAULT_PIC = item;
 
@@ -20,5 +21,11 @@ const ProductItem = ({ img, id, title }) => (
     </div>
   </Link>
 );
+
+ProductItem.propTypes = {
+  img: Proptypes.object,
+  id: Proptypes.number,
+  title: Proptypes.string,
+};
 
 export default ProductItem;

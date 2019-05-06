@@ -9,7 +9,7 @@ class WrongPath extends React.Component {
   };
 
   render() {
-    // Simulate an error
+   // Simulate an error
     const { test } = this.state;
     if (test) {
       throw new Error('Simulate an error');

@@ -40,13 +40,14 @@ $font-size-base: 14px;
 %form-style {
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 %inputs-style {
   border-bottom: 2px solid #fff;
   background-color: inherit;
   color: #fff;
-  margin-bottom: 15px;
+  margin-top: 15px;
   outline: none;
   text-indent: 10px;
 }

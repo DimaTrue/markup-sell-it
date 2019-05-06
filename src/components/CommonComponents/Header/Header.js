@@ -2,8 +2,8 @@ import React from 'react';
 import style from './Header.module.scss';
 import logo from '../../../img/logo.png';
 import { Link } from 'react-router-dom';
-import Search from '../Search/Search';
-import UserMenu from '../../../containers/userMenu';
+import Search from '../../../containers/Search';
+import UserMenu from '../../../containers/UserMenu';
 
 const Header = () => (
   <div className={style.header}>
