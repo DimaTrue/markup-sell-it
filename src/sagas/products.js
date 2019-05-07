@@ -9,6 +9,8 @@ import {
     PRODUCT_ADD_SUCCESS,
     PRODUCT_ADD_ERROR,
 } from '../action-types/products';
+import { getProducts } from '../api-client/products';
+
 import { put, takeEvery, call, all } from 'redux-saga/effects'
 import axios from 'axios';
 
@@ -26,7 +28,7 @@ export function* watchAddProduct() {
 
 export function* fetchProducts() {
     try {
-        const result = yield call(axios.get, 'http://light-it-04.tk/api/posters/')
+        const result = yield call(getProducts);
         yield put({ type: FETCH_PRODUCTS_SUCCESS, payload: result.data.data, meta: { printLog: true } })
     } catch (error) {
         yield put({ type: FETCH_PRODUCTS_FAILURE, payload: error });

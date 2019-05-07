@@ -9,11 +9,11 @@ import ProductItemPage from './containers/ProductItemPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ErrorBoundary from './components/CommonComponents/ErrorBoundary/ErrorBoundary';
 
-
 class App extends React.Component {
 
   render() {
     return (
+      // <Router history={history}>
       <BrowserRouter>
         <Switch>
           <Route path='/login' component={() => <ErrorBoundary><Login /></ErrorBoundary>} />

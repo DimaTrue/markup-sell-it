@@ -54,6 +54,7 @@ class FormRegistration extends React.Component {
 
   submit = () => {
     this.setState({ redirectToNewPage: true })
+    
   }
 
   render() {

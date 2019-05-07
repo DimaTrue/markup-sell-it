@@ -12,7 +12,7 @@ export function* watchFetchUser() {
 
 export function* fetchUser() {
     try {
-        const result = yield call(axios.get, 'http://light-it-04.tk/api/posters/')
+        const result = yield call(axios.get, 'http://light-it-04.tk/api/docs/')
         yield put({ type: FETCH_USER_SUCCESS, payload: result.data.data, })
     } catch (error) {
         yield put({ type: FETCH_USER_FAILURE, payload: error });
