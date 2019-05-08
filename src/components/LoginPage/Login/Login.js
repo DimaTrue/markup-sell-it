@@ -1,12 +1,16 @@
 import React from 'react';
-import style from './Login.module.scss';
-import bg from '../../../img/bg.jpg';
-import logo from '../../../img/lightLogo.png';
-import FormSignIn from '../../../containers/FormSignIn';
-import FormRegistration from '../FormRegistration/FormRegistration';
 import { Link } from 'react-router-dom';
 import { Switch, Route } from "react-router-dom";
+
+import FormRegistration from '../FormRegistration/FormRegistration';
 import RegistrationSuccess from '../RegistrationSuccess/RegistrationSuccess';
+import FormSignIn from '../../../containers/FormSignIn';
+
+import bg from '../../../img/bg.jpg';
+import logo from '../../../img/lightLogo.png';
+
+import style from './Login.module.scss';
+
 
 const Login = () => (
   <div className={style.main}>
@@ -30,6 +34,5 @@ const Login = () => (
     </div>
   </div>
 );
-
 
 export default Login;

@@ -1,9 +1,12 @@
 import React from 'react';
-import style from './ProductItem.module.scss';
 import { Link } from 'react-router-dom';
+import Proptypes from 'prop-types';
+
 import eye from '../../../img/eye.png';
 import item from '../../../img/item.jpg';
-import Proptypes from 'prop-types';
+
+import style from './ProductItem.module.scss';
+
 
 const DEFAULT_PIC = item;
 
@@ -15,7 +18,7 @@ const ProductItem = ({ img, id, title }) => (
         <img src={(!img ? DEFAULT_PIC : img.file)} alt="img" className={style.pic} />
       </div>
       <div className={style.panel}>
-        <span className={style.title}>{!title? 'New Product': title}</span>
+        <span className={style.title}>{!title ? 'New Product' : title}</span>
         <span className={style.icon}><img src={eye} alt="eye" /></span>
       </div>
     </div>

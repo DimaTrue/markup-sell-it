@@ -1,8 +1,10 @@
 import React from 'react';
-import style from './FormSignIn.module.scss';
 import { Redirect } from 'react-router-dom';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
+
+import style from './FormSignIn.module.scss';
+
 
 const validate = values => {
   const errors = {}
@@ -34,7 +36,6 @@ const renderField = ({
     </div>
   )
 
-
 class FormSignIn extends React.Component {
   state = {
     redirectToNewPage: false
@@ -42,7 +43,7 @@ class FormSignIn extends React.Component {
 
   login = (e) => {
     this.props.login();
-    this.setState({ redirectToNewPage: true }),
+    this.setState({ redirectToNewPage: true });
     this.props.fetchUser();
   };
 

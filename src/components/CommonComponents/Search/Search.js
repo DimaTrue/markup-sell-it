@@ -1,7 +1,9 @@
 import React from 'react';
-import style from './Search.module.scss';
-import search from '../../../img/search.png';
 import PropTypes from 'prop-types';
+
+import search from '../../../img/search.png';
+
+import style from './Search.module.scss';
 
 
 class Search extends React.Component {

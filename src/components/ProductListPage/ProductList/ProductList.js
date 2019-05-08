@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
+import Proptypes from 'prop-types';
+
 import Header from '../../CommonComponents/Header/Header';
 import Footer from '../../CommonComponents/Footer/Footer';
 import ProductItem from '../ProductItem/ProductItem';
-import Proptypes from 'prop-types';
-import style from './ProductList.module.scss';
 import Loading from '../../CommonComponents/Loading/Loading';
+
+import style from './ProductList.module.scss';
 
 
 class ProductList extends React.Component {

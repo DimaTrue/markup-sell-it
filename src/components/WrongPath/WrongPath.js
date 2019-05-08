@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+
 import style from './WrongPath.module.scss';
+
 
 class WrongPath extends React.Component {
 
@@ -9,7 +11,7 @@ class WrongPath extends React.Component {
   };
 
   render() {
-   // Simulate an error
+    // Simulate an error
     const { test } = this.state;
     if (test) {
       throw new Error('Simulate an error');

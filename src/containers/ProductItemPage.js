@@ -1,6 +1,9 @@
-import ProductItemPage from '../components/ProductItemPage/ProductItemPage';
 import { connect } from 'react-redux';
+
+import ProductItemPage from '../components/ProductItemPage/ProductItemPage';
+
 import { FETCH_PRODUCT_ITEM } from '../action-types/products';
+
 
 const mapStateToProps = state => ({
   productItem: state.products.productItem,

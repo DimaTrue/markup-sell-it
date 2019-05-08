@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
-import style from './ProductItemPage.module.scss';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import Header from '../CommonComponents/Header/Header';
 import Footer from '../CommonComponents/Footer/Footer';
 import Loading from '../CommonComponents/Loading/Loading';
+
 import item from '../../img/item.jpg';
-import PropTypes from 'prop-types';
+
+import style from './ProductItemPage.module.scss';
+
 
 class ProductItemPage extends React.Component {
 

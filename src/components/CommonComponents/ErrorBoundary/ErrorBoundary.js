@@ -1,7 +1,10 @@
 import React from 'react';
-import style from './ErrorBoundary.module.scss';
-import errorPic from '../../../img/error.gif';
 import { Link } from 'react-router-dom';
+
+import errorPic from '../../../img/error.gif';
+
+import style from './ErrorBoundary.module.scss';
+
 
 class ErrorBoundary extends React.Component {
 

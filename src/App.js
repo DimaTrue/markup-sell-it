@@ -1,13 +1,16 @@
 import React from 'react';
-import './styles/App.scss';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import Login from './components/LoginPage/Login/Login';
 import Profile from './components/Profile/Profile';
 import PostForm from './components/CommonComponents/AddProductForm/AddProductForm';
 import WrongPath from './components/WrongPath/WrongPath';
 import ProductList from './containers/ProductList';
-import ProductItemPage from './containers/ProductItemPage';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ErrorBoundary from './components/CommonComponents/ErrorBoundary/ErrorBoundary';
+import ProductItemPage from './containers/ProductItemPage';
+
+import './styles/App.scss';
+
 
 class App extends React.Component {
 

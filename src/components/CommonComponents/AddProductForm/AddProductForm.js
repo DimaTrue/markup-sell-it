@@ -1,11 +1,14 @@
 import React from 'react';
-import style from './AddProductForm.module.scss';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { PRODUCT_ADD } from '../../../action-types/products'
 import PropTypes from 'prop-types';
+
 import Header from '../../CommonComponents/Header/Header';
 import Footer from '../../CommonComponents/Footer/Footer';
+
+import { PRODUCT_ADD } from '../../../action-types/products'
+
+import style from './AddProductForm.module.scss';
 
 
 const renderField = ({
