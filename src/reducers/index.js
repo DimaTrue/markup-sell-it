@@ -3,12 +3,12 @@ import { reducer as formReducer } from 'redux-form';
 
 import products from './products';
 import user from './user';
-import authorizationReducer from './authorization';
+import isLogin from './authorization';
 
 
 export default combineReducers({
   products,
   user,
-  isLogin: authorizationReducer,
+  isLogin,
   form: formReducer,
 });

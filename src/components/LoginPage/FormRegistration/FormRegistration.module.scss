@@ -8,15 +8,6 @@
   border-bottom: 2px solid $border-color;
 }
 
-.formInput {
-  @extend %inputs-style;
-  width: 100%;
-}
-
-.formInput::placeholder {
-  color: #fff;
-}
-
 .formButton {
   @extend %all-buttons;
   width: 100%;
@@ -25,12 +16,6 @@
 
 .formButton:hover {
   border-bottom: 3px solid $border-color;
-}
-
-.errorNotice {
-  color: red;
-  font-size: 12px;
-  display: flex;
 }
 
 .link {

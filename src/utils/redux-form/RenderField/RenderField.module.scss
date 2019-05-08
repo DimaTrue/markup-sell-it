@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+
+.formInput {
+  @extend %inputs-style;
+  width: 100%;
+}
+
+.formInput::placeholder {
+  color: #fff;
+}
+
+.errorNotice {
+  color: red;
+  font-size: 12px;
+  display: flex;
+}
