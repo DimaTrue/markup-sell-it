@@ -28,7 +28,7 @@ const UserMenu = ({ isLogin, logout }) => {
           <div className={style.logout} title="Log Out" onClick={logout}><img src={icon} alt="icon" /></div>
         </div>
         <div className={style.submenu}>
-          <span className={style.text}><Link className={style.submenuLink} to="/post">Add new post</Link></span>
+          <span className={style.text}><Link className={style.submenuLink} to="/add_product">Add new post</Link></span>
           <span className={style.profile}><Link className={style.submenuLink} to="/profile" >Profile</Link></span>
         </div>
       </div>

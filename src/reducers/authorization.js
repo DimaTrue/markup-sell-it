@@ -2,7 +2,7 @@ import { LOG_IN, LOG_OUT } from '../action-types/authorization';
 
 
 const initialState = {
-  isLogin: false,
+  isLogin: true,
 };
 
 export default (state = initialState, action) => {

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { put, takeEvery, call, all } from 'redux-saga/effects';
 
 import {
@@ -12,7 +11,7 @@ import {
 	PRODUCT_ADD_SUCCESS,
 	PRODUCT_ADD_ERROR,
 } from '../action-types/products';
-import { getProducts } from '../api-client/products';
+import { getProducts, getProductItem, postProductItem } from '../api-client/products';
 
 
 export function* watchFetchProducts() {
@@ -36,20 +35,20 @@ export function* fetchProducts() {
 	}
 }
 
-// itemIndex is a value of this.props.match.params.id of current product, flies from container/ProductItemPage 
+// payload is a value of this.props.computedMatch.params.id of current product, files from container/ProductItemPage 
 
-export function* fetchProductItem(itemIndex) {
+export function* fetchProductItem({ payload }) {
 	try {
-		const result = yield call(axios.get, `http://light-it-04.tk/api/posters/${itemIndex.payload}`)
+		const result = yield getProductItem(payload);
 		yield put({ type: FETCH_PRODUCT_ITEM_SUCCESS, payload: result.data, })
 	} catch (error) {
 		yield put({ type: FETCH_PRODUCT_ITEM_FAILURE, payload: error });
 	}
 }
 
-export function* addProduct(params) {
+export function* addProduct({ params }) {
 	try {
-		const result = yield call(axios.post, 'http://light-it-04.tk/api/posters/', { params });
+		const result = yield postProductItem(params);
 		yield put({ type: PRODUCT_ADD_SUCCESS, data: result.data })
 	} catch (error) {
 		yield put({ type: PRODUCT_ADD_ERROR, payload: error })

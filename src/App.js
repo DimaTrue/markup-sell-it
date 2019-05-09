@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
+import history from './history';
 
 import Login from './components/LoginPage/Login/Login';
 import Profile from './components/Profile/Profile';
@@ -17,17 +18,16 @@ class App extends React.Component {
 
   render() {
     return (
-      // <Router history={history}>
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
           <Route path='/login' component={() => <ErrorBoundary><Login /></ErrorBoundary>} />
-          <Route path='/' exact component={() => <ErrorBoundary><ProductList /> </ErrorBoundary>} />
-          <Route path='/product/:id' component={ProductItemPage} />
-          <ProtectedRoute path='/post' component={() => <PostForm />} />
+          <ProtectedRoute path='/' exact component={() => <ErrorBoundary><ProductList /> </ErrorBoundary>} />
+          <ProtectedRoute path='/product/:id' component={ProductItemPage} />
+          <ProtectedRoute path='/add_product' component={() => <PostForm />} />
           <ProtectedRoute path='/profile' component={() => <Profile />} />
           <Route component={() => <ErrorBoundary><WrongPath /></ErrorBoundary>} />
         </Switch>
-      </BrowserRouter>
+      </Router>
     )
   }
 }

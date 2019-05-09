@@ -1,9 +1,11 @@
 @import '../../../styles/variables.scss';
 
 .section {
-    min-height: calc(100vh - 141px);
-    margin-top: 90px;
+    min-height: calc(100vh - 51px);
     color: $btn-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 .container {
@@ -15,6 +17,11 @@
     text-align: center;
 }
 
+.wrap {
+  padding: 10px;
+  width: 300px;
+  background-color: $page-color;
+}
 .form {
   @extend %form-style;
   color: $btn-color;
@@ -22,18 +29,6 @@
 
 .form:focus {
   border-bottom: 2px solid $border-color;
-}
-
-.formInput {
-  @extend %inputs-style;
-  width: 250px;
-  color: $btn-color;
-  margin-top: 15px;
-  border-bottom: 2px solid $page-color;
-}
-
-.formInput::placeholder {
-  color: $btn-color;
 }
 
 .formButton {

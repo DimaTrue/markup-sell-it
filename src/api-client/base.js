@@ -12,3 +12,7 @@ export const request = (method, path) => {
 export const get = (path) => {
 	return request('GET', path);
 }
+
+export const post = (path, params) => {
+	return request('POST', path, params);
+}

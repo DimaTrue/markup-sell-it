@@ -14,7 +14,7 @@ import style from './ProductItemPage.module.scss';
 class ProductItemPage extends React.Component {
 
   async componentDidMount() {
-    this.props.fetchProductItem(this.props.match.params.id)
+    this.props.fetchProductItem(this.props.computedMatch.params.id);
   }
 
   render() {
