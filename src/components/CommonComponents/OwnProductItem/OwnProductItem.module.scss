@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+
+.product {
+  margin: 5px;
+}
+
+.title {
+  color: $btn-color;
+}
+
+.pic {
+  width: 100px;
+}
+
+.pic:hover {
+  opacity: 0.5;
+}
+
+.del {
+  color: red;
+  background: none;
+}

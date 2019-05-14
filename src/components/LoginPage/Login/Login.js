@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { Switch, Route } from "react-router-dom";
 
-import FormRegistration from '../FormRegistration/FormRegistration';
+import FormRegistration from '../../../containers/FormRegistration';
 import RegistrationSuccess from '../RegistrationSuccess/RegistrationSuccess';
 import FormSignIn from '../../../containers/FormSignIn';
 
@@ -12,27 +12,30 @@ import logo from '../../../img/lightLogo.png';
 import style from './Login.module.scss';
 
 
-const Login = () => (
-  <div className={style.main}>
-    <div className={style.bg}>
-      <img className={style.picture} src={bg} alt="bg" />
-    </div>
-    <div className={style.loginPage}>
-      <div className={style.logoBlock}>
-        <Link to="/" title="Go to Product list"><img src={logo} alt="sell it" /></Link>
+const Login = () => {
+
+  return (
+    <div className={style.main}>
+      <div className={style.bg}>
+        <img className={style.picture} src={bg} alt="bg" />
       </div>
-      <div className={style.btn}>
-        <Link to="/login/signin" ><button className={style.button} >Sign In</button></Link>
-        <Link to="/login/signup" > <button className={style.button} >Sign Up</button></Link>
+      <div className={style.loginPage}>
+        <div className={style.logoBlock}>
+          <Link to="/" title="Go to Product list"><img src={logo} alt="sell it" /></Link>
+        </div>
+        <div className={style.btn}>
+          <NavLink to="/login/signin" className={style.button} activeClassName={style.active}>Sign In</NavLink>
+          <NavLink to="/login/signup" className={style.button} activeClassName={style.active}>Sign Up</NavLink>
+        </div>
+        <Switch>
+          <Route path='/login/signin' component={FormSignIn} />
+          <Route path='/login/signup' component={FormRegistration} />
+          <Route path='/login/success' component={RegistrationSuccess} />
+        </Switch>
+        <div className={style.copy}>Frontend labs 2017</div>
       </div>
-      <Switch>
-        <Route path='/login/signin' component={FormSignIn} />
-        <Route path='/login/signup' component={FormRegistration} />
-        <Route path='/login/success' component={RegistrationSuccess} />
-      </Switch>
-      <div className={style.copy}>Frontend labs 2017</div>
     </div>
-  </div>
-);
+  );
+}
 
 export default Login;

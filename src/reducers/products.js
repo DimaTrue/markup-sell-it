@@ -1,47 +1,74 @@
-import {
-  FETCH_PRODUCTS,
-  FETCH_PRODUCTS_SUCCESS,
-  FETCH_PRODUCTS_FAILURE,
-  FETCH_PRODUCT_ITEM,
-  FETCH_PRODUCT_ITEM_SUCCESS,
-  FETCH_PRODUCT_ITEM_FAILURE,
-  SEARCH_PRODUCTS,
-} from '../action-types/products';
+import * as products from '../action-types/products';
 
 
 const initialState = {
   isLoading: true,
   data: [],
   error: null,
-  filterSymbol: '',
   isLoadingItem: true,
   productItem: {},
   errorItem: null,
+  isLoadingOwnProducts: true,
+  ownProducts: [],
+  errorOwnProducts: null,
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
 
-    case FETCH_PRODUCTS:
+    case products.FETCH_PRODUCTS:
       return { ...state, isLoading: true, };
 
-    case FETCH_PRODUCTS_SUCCESS:
+    case products.FETCH_PRODUCTS_SUCCESS:
       return { ...state, data: action.payload, isLoading: false, error: null, };
 
-    case FETCH_PRODUCTS_FAILURE:
+    case products.FETCH_PRODUCTS_FAILURE:
       return { ...state, isLoading: false, error: action.payload, };
 
-    case FETCH_PRODUCT_ITEM:
+    case products.FETCH_PRODUCT_ITEM:
       return { ...state, isLoadingItem: true, };
 
-    case FETCH_PRODUCT_ITEM_SUCCESS:
+    case products.FETCH_PRODUCT_ITEM_SUCCESS:
       return { ...state, productItem: action.payload, isLoadingItem: false, error: null, };
 
-    case FETCH_PRODUCT_ITEM_FAILURE:
+    case products.FETCH_PRODUCT_ITEM_FAILURE:
       return { ...state, isLoadingItem: false, errorItem: action.payload, };
 
-    case SEARCH_PRODUCTS:
-      return { ...state, filterSymbol: action.payload, }
+    case products.SEARCH_PRODUCTS:
+      return { ...state, isLoading: true, };
+
+    case products.SEARCH_PRODUCTS_SUCCESS:
+      return { ...state, data: action.payload, isLoading: false, error: null, };
+
+    case products.SEARCH_PRODUCTS_FAILURE:
+      return { ...state, isLoading: false, error: action.payload, };
+
+    case products.PRODUCT_ADD:
+      return { ...state, };
+
+    case products.PRODUCT_ADD_SUCCESS:
+      return { ...state, data: action.payload, };
+
+    case products.PRODUCT_ADD_ERROR:
+      return { ...state, error: action.payload, };
+
+    case products.FETCH_OWN_PRODUCTS:
+      return { ...state, isLoadingOwnProducts: true, };
+
+    case products.FETCH_OWN_PRODUCTS_SUCCESS:
+      return { ...state, ownProducts: action.payload, isLoadingOwnProducts: false, errorOwnProducts: null, };
+
+    case products.FETCH_OWN_PRODUCTS_FAILURE:
+      return { ...state, isLoadingOwnProducts: false, errorOwnProducts: action.payload, };
+
+    case products.DELETE_PRODUCT_ITEM:
+      return { ...state, };
+
+    case products.DELETE_PRODUCT_ITEM_SUCCESS:
+      return { ...state, };
+
+    case products.DELETE_PRODUCT_ITEM_FAILURE:
+      return { ...state, error: action.payload, };
 
     default:
       return state;

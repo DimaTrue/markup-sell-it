@@ -51,9 +51,9 @@ class ProductItemPage extends React.Component {
                   <img className={style.pic} src={productItem.images.length ? productItem.images[0].file : item} alt="product" />
                 </div>
                 <div className={style.description}>
-                  <h2 className={style.title}>{productItem.theme || `Some title text must be here<br />maybe second  line`}</h2>
+                  <h2 className={style.title}>{productItem.theme || `Unknown`}</h2>
                   <div>
-                    <strong>from</strong> <span className={style.userName} >Alis Kim</span> <span className={style.price}>Price: {productItem.price}$</span>
+                    <strong>from</strong> <span className={style.userName} >{productItem.owner.username}</span> <span className={style.price}>Price: {productItem.price}$</span>
                   </div>
                   <p className={style.text}>{productItem.text || `Some description text from WYSIWYG editer`}</p>
                   <div>

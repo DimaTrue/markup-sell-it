@@ -2,17 +2,14 @@
 
 .section {
     min-height: calc(100vh - 51px);
-    color: $btn-color;
     display: flex;
     align-items: center;
-    justify-content: center;
   }
 
 .container {
     max-width: 1140px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0 auto;
     text-align: center;
 }
@@ -22,6 +19,7 @@
   width: 300px;
   background-color: $page-color;
 }
+
 .form {
   @extend %form-style;
   color: $btn-color;
@@ -34,16 +32,33 @@
 .formButton {
   @extend %all-buttons;
   width: 150px;
-  margin-top: 15px;
 }
 
 .formButton:hover {
   border-bottom: 3px solid $border-color;
 }
 
+.act {
+  margin-top: 10px;
+}
+
+
+.lowerLink {
+  margin: 50px auto;
+}
+
+.link {
+  @extend %return-btn;
+}
+
+.link:hover {
+  @extend %hover-return-btn;
+}
+
 
 @media screen and (max-width: 900px) {
     .container {
         margin-top: 250px;
+        padding-bottom: 5px;
     }
 }

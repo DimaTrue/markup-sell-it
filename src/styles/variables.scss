@@ -26,15 +26,15 @@ $font-size-base: 14px;
 }
 
 %return-btn {
-  color: $link-color;
+  color: $page-color;
   padding: 15px;
-  border: 1px solid $link-color;
+  border: 1px solid $page-color;
   transition: ease-in-out 0.5s;
 }
 
 %hover-return-btn {
   color: $bg-color;
-  background-color: $link-color;
+  background-color: $page-color;
 }
 
 %form-style {

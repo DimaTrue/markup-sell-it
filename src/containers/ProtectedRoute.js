@@ -14,7 +14,7 @@ const ProtectedRoute = ({ component: Component, ...props }) => {
 }
 
 const mapStateToProps = state => ({
-  isLogin: state.isLogin.isLogin,
+  isLogin: state.user.isLogin,
 })
 
 export default connect(mapStateToProps)(ProtectedRoute);

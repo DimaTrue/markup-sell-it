@@ -11,8 +11,8 @@ import style from './ProductList.module.scss';
 
 class ProductList extends React.Component {
 
-  async componentDidMount() {
-    await this.props.fetchProducts();
+  componentDidMount() {
+    this.props.fetchProducts();
   }
 
   render() {
@@ -44,7 +44,7 @@ class ProductList extends React.Component {
           <div className={style.section}>
             <div className={style.container}>
               <div className={style.productList}>
-                {this.props.data.map(({ images, theme, pk }, index) => <ProductItem key={index} img={images[0]} id={pk} title={theme} />)}
+                {this.props.data && this.props.data.map(({ images, theme, pk }, index) => <ProductItem key={index} img={images[0]} id={pk} title={theme} />)}
               </div>
             </div>
           </div>

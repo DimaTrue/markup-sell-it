@@ -1,13 +1,13 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Header from '../../CommonComponents/Header/Header';
 import Footer from '../../CommonComponents/Footer/Footer';
 
-import { PRODUCT_ADD } from '../../../action-types/products'
-import { RenderField } from '../../../utils/redux-form/RenderField/RenderField'
+import { RenderField } from '../../../utils/redux-form/RenderField/RenderField';
+import { validate } from '../../../utils/redux-form/validate';
 
 import style from './AddProductForm.module.scss';
 
@@ -15,9 +15,9 @@ import style from './AddProductForm.module.scss';
 class AddProductForm extends React.Component {
 
   submit = (params) => {
-    this.props.handleSubmit(params);
-    console.log(params)
+    this.props.addProduct(params);
   }
+
   render() {
     const { submitting, params } = this.props;
     return (
@@ -32,83 +32,53 @@ class AddProductForm extends React.Component {
                 return this.submit(params)
               }}>
                 <Field
-                  className={style.formInput}
                   name="theme"
                   component={RenderField}
                   type="text"
                   label="theme"
                 />
                 <Field
-                  className={style.formInput}
                   name="text"
                   component={RenderField}
                   type="text"
                   label="text"
                 />
                 <Field
-                  className={style.formInput}
                   name="price"
                   component={RenderField}
                   type="number"
                   label="price"
                 />
                 <Field
-                  className={style.formInput}
                   name="currency"
                   component={RenderField}
                   type="number"
                   label="currency"
                 />
-                {/* <Field
-          className={style.formInput}
-          name="images"
-          component={renderField}
-          type="file"
-          label="images"
-        /> */}
+                <div className={style.act}>
+                  <label>Contract price</label>
+                  <Field
+                    name="contract_price"
+                    component={RenderField}
+                    type="checkbox"
+                    value="contract price"
+                  />
+                </div>
                 <Field
-                  className={style.formInput}
-                  name="contract_price"
-                  component={RenderField}
-                  type="number"
-                  label="contract_price"
-                />
-                <Field
-                  className={style.formInput}
                   name="location"
                   component={RenderField}
                   type="text"
                   label="location"
                 />
-                <Field
-                  className={style.formInput}
-                  name="category"
-                  component={RenderField}
-                  type="text"
-                  label="category"
-                />
-                <Field
-                  className={style.formInput}
-                  name="activated_at"
-                  component={RenderField}
-                  type="time"
-                  label="activated_at"
-                />
-                <Field
-                  className={style.formInput}
-                  name="activated_at"
-                  component={RenderField}
-                  type="date"
-                  label="activated_at"
-                />
-                <span>Is Active</span>
-                <Field
-                  className={style.formInput}
-                  name="is_active"
-                  component={RenderField}
-                  type="checkbox"
-                  value="is_active"
-                />
+                <div className={style.act}>
+                  <label>Is Active</label>
+                  <Field
+                    name="is_active"
+                    component={RenderField}
+                    type="checkbox"
+                    value="is_active"
+                  />
+                </div>
                 <button
                   className={style.formButton}
                   type="submit"
@@ -117,6 +87,9 @@ class AddProductForm extends React.Component {
                   Add Product
           </ button>
               </form>
+            </div>
+            <div className={style.lowerLink}>
+              <Link className={style.link} to='/' >Return to Product List</Link>
             </div>
           </div>
         </div>
@@ -132,14 +105,7 @@ AddProductForm.propTypes = {
 
 AddProductForm = reduxForm({
   form: 'add_product',
+  validate,
 })(AddProductForm)
 
-const mapStateToProps = state => ({
-  params: state.form.add_product && state.form.add_product.values
-});
-
-const mapDispatchToProps = dispatch => ({
-  handleSubmit: (params) => dispatch({ type: PRODUCT_ADD, payload: params })
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddProductForm);
+export default AddProductForm;

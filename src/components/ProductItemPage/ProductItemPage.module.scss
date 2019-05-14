@@ -34,13 +34,14 @@
 }
 
 .pic {
-    height: 450px;
-    width: 500px;
+    height: 350px;
+    width: 450px;
 }
 
 .description {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     color: $btn-color;
     width: 40%;
 }
@@ -85,7 +86,7 @@
 
 @media screen and (max-width: 900px) {
     .section {
-        margin-top: 190px;
+        margin-top: 200px;
     }
 
     .product {

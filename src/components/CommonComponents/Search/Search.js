@@ -9,14 +9,14 @@ import style from './Search.module.scss';
 
 class Search extends React.Component {
 
-  handleInput = (e) => {
-    const value = e.target.value.toLowerCase();
+  handleInput = e => {
     const { searchProducts, history } = this.props;
-    searchProducts(value);
     if (history.location.pathname !== '/') {
       history.push('/');
     }
-  }
+    const value = e.target.value.toLowerCase();
+    searchProducts(value);
+  };
 
   render() {
     return (
@@ -39,4 +39,3 @@ Search.propTypes = {
 }
 
 export default withRouter(Search);
-

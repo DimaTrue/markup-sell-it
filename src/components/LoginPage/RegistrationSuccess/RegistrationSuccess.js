@@ -6,7 +6,7 @@ const RegistrationSuccess = () => (
 		<p>
 			Thank You for signing up.<br />
 			Please, check your email<br /> to confirm registration.
-        </p>
+    </p>
 	</div>
 );
 

@@ -10,17 +10,25 @@ export const validate = values => {
   } else if (values.password.length < 5) {
     errors.password = 'Must be 5 characters or more'
   }
-  if (!values.confirmpassword) {
-    errors.confirmpassword = 'Required'
-  } else if (values.confirmpassword.length < 5) {
-    errors.confirmpassword = 'Must be 5 characters or more'
-  } else if (values.confirmpassword !== values.password) {
-    errors.confirmpassword = 'Your passwords is not equal'
+  if (!values.password1) {
+    errors.password1 = 'Required'
+  } else if (values.password1.length < 5) {
+    errors.password1 = 'Must be 5 characters or more'
+  }
+  if (!values.password2) {
+    errors.password2 = 'Required'
+  } else if (values.password2.length < 5) {
+    errors.password2 = 'Must be 5 characters or more'
+  } else if (values.password2 !== values.password1) {
+    errors.password2 = 'Your passwords is not equal'
   }
   if (!values.email) {
     errors.email = 'Required'
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address'
+  }
+  if (!values.theme) {
+    errors.theme = 'Required'
   }
   return errors
 }

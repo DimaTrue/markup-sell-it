@@ -9,6 +9,18 @@
   color: #fff;
 }
 
+@-webkit-keyframes autofill {
+  to {
+    color: inherit;
+    background: transparent;
+  }
+}
+
+.formInput:-webkit-autofill {
+  -webkit-animation: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
 .errorNotice {
   color: red;
   font-size: 12px;

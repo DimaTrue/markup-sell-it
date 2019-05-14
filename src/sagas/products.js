@@ -1,37 +1,46 @@
 import { put, takeEvery, call, all } from 'redux-saga/effects';
 
+import * as types from '../action-types/products';
 import {
-	FETCH_PRODUCTS,
-	FETCH_PRODUCTS_SUCCESS,
-	FETCH_PRODUCTS_FAILURE,
-	FETCH_PRODUCT_ITEM,
-	FETCH_PRODUCT_ITEM_SUCCESS,
-	FETCH_PRODUCT_ITEM_FAILURE,
-	PRODUCT_ADD,
-	PRODUCT_ADD_SUCCESS,
-	PRODUCT_ADD_ERROR,
-} from '../action-types/products';
-import { getProducts, getProductItem, postProductItem } from '../api-client/products';
+	getProducts,
+	getProductItem,
+	getSearchProducts,
+	postProductItem,
+	getOwnProducts,
+	removeProductItem,
+} from '../api-client/products';
 
 
 export function* watchFetchProducts() {
-	yield takeEvery(FETCH_PRODUCTS, fetchProducts)
+	yield takeEvery(types.FETCH_PRODUCTS, fetchProducts);
 }
 
 export function* watchFetchProductItem() {
-	yield takeEvery(FETCH_PRODUCT_ITEM, fetchProductItem)
+	yield takeEvery(types.FETCH_PRODUCT_ITEM, fetchProductItem);
+}
+
+export function* watchSearchProducts() {
+	yield takeEvery(types.SEARCH_PRODUCTS, searchProducts);
 }
 
 export function* watchAddProduct() {
-	yield takeEvery(PRODUCT_ADD, addProduct)
+	yield takeEvery(types.PRODUCT_ADD, addProduct);
+}
+
+export function* watchFetchOwnProducts() {
+	yield takeEvery(types.FETCH_OWN_PRODUCTS, fetchOwnProducts);
+}
+
+export function* watchDeleteProductItem() {
+	yield takeEvery(types.DELETE_PRODUCT_ITEM, deleteProductItem);
 }
 
 export function* fetchProducts() {
 	try {
 		const result = yield call(getProducts);
-		yield put({ type: FETCH_PRODUCTS_SUCCESS, payload: result.data.data, meta: { printLog: true } })
+		yield put({ type: types.FETCH_PRODUCTS_SUCCESS, payload: result.data.data, meta: { printLog: true } });
 	} catch (error) {
-		yield put({ type: FETCH_PRODUCTS_FAILURE, payload: error });
+		yield put({ type: types.FETCH_PRODUCTS_FAILURE, payload: error });
 	}
 }
 
@@ -40,18 +49,47 @@ export function* fetchProducts() {
 export function* fetchProductItem({ payload }) {
 	try {
 		const result = yield getProductItem(payload);
-		yield put({ type: FETCH_PRODUCT_ITEM_SUCCESS, payload: result.data, })
+		yield put({ type: types.FETCH_PRODUCT_ITEM_SUCCESS, payload: result.data, });
 	} catch (error) {
-		yield put({ type: FETCH_PRODUCT_ITEM_FAILURE, payload: error });
+		yield put({ type: types.FETCH_PRODUCT_ITEM_FAILURE, payload: error });
 	}
 }
 
-export function* addProduct({ params }) {
+export function* searchProducts({ payload }) {
 	try {
-		const result = yield postProductItem(params);
-		yield put({ type: PRODUCT_ADD_SUCCESS, data: result.data })
+		const result = yield call(getSearchProducts, payload);
+		yield put({ type: types.SEARCH_PRODUCTS_SUCCESS, payload: result.data.data, });
 	} catch (error) {
-		yield put({ type: PRODUCT_ADD_ERROR, payload: error })
+		yield put({ type: types.SEARCH_PRODUCTS_FAILURE, payload: error, });
+	}
+}
+
+export function* addProduct(params) {
+	try {
+		const result = yield postProductItem(params.payload);
+		yield put({ type: types.PRODUCT_ADD_SUCCESS, data: result.data });
+		alert('Your product has added successfully!');
+	} catch (error) {
+		yield put({ type: types.PRODUCT_ADD_ERROR, payload: error });
+	}
+}
+
+export function* fetchOwnProducts() {
+	try {
+		const result = yield call(getOwnProducts);
+		yield put({ type: types.FETCH_OWN_PRODUCTS_SUCCESS, payload: result.data.data, });
+	} catch (error) {
+		yield put({ type: types.FETCH_OWN_PRODUCTS_FAILURE, payload: error });
+	}
+}
+
+export function* deleteProductItem({ payload }) {
+	try {
+		yield removeProductItem(payload);
+		yield put({ type: types.DELETE_PRODUCT_ITEM_SUCCESS, });
+		yield call(fetchOwnProducts);
+	} catch (error) {
+		yield put({ type: types.DELETE_PRODUCT_ITEM_FAILURE, payload: error });
 	}
 }
 
@@ -59,6 +97,9 @@ export default function* products() {
 	yield all([
 		watchFetchProducts(),
 		watchFetchProductItem(),
+		watchSearchProducts(),
 		watchAddProduct(),
+		watchFetchOwnProducts(),
+		watchDeleteProductItem(),
 	])
 }

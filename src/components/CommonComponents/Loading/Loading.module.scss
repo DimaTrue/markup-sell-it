@@ -35,6 +35,13 @@
   100% { transform: rotate(360deg); }
 }
 
+@media screen and (max-width: 900px) {
+
+  .cont {
+    margin-top: 50px;
+  }
+}
+
 @media screen and (max-width: 414px) {
 
   .heading {

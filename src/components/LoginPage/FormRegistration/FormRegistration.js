@@ -11,6 +11,8 @@ import style from './FormRegistration.module.scss';
 class FormRegistration extends React.Component {
 
   submit = () => {
+    const { signUp, params } = this.props;
+    signUp(params);
     this.props.history.push('/login/success')
   }
 
@@ -34,14 +36,14 @@ class FormRegistration extends React.Component {
         />
         <Field
           className={style.formInput}
-          name="password"
+          name="password1"
           component={RenderField}
           type="password"
           label="Password"
         />
         <Field
           className={style.formInput}
-          name="confirmpassword"
+          name="password2"
           component={RenderField}
           type="password"
           label="Confirm the Password"

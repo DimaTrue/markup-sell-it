@@ -2,17 +2,17 @@ import { connect } from 'react-redux';
 
 import FormSignIn from '../components/LoginPage/FormSignIn/FormSignIn';
 
-import { logIn } from '../actions/authorization';
-import { FETCH_USER } from '../action-types/authorization'
+import { LOG_IN } from '../action-types/user'
 
 
 const mapStateToProps = state => ({
-  isLogin: state.isLogin
+  response: state.user,
+  params: state.form.authorization,
+  isLogin: state.user.isLogin,
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: () => dispatch(logIn()),
-  fetchUser: () => dispatch({ type: FETCH_USER })
+  signIn: (params) => dispatch({ type: LOG_IN, payload: params }),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormSignIn);

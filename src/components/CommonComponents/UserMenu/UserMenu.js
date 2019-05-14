@@ -2,38 +2,48 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import user from '../../../img/user.jpg';
+import defUser from '../../../img/defaultAvatar.jpg';
 import icon from '../../../img/icon.png';
 
 import style from './UserMenu.module.scss';
 
 
-const UserMenu = ({ isLogin, logout }) => {
+class UserMenu extends React.Component {
 
-  if (isLogin.isLogin === false) {
-    return (<div className={style.userMenu}>
-      <div className={style.notAuthorizated}>
-        Welcome, <Link to="/login/signin" className={style.link}>login</Link> or <Link to="/login/signup" className={style.link}>register</Link> for
-        start !
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
+  render() {
+    const { userData, logout } = this.props;
+    if (!userData) {
+      return (
+        <div className={style.userMenu}>
+          <div className={style.notAuthorizated}>
+            Welcome, <Link to="/login/signin" className={style.link}>login</Link> or <Link to="/login/signup" className={style.link}>register</Link> for
+            start !
+        </div>
+        </div>);
+    } else {
+      return (
+        <div className={style.userMenu}>
+          <div className={style.authorizated}>
+            <div className={style.inner}>
+              <div className={style.user}>
+                <img className={style.avatar} src={userData.avatar || defUser} alt="user" />
+                <span className={style.name}>{userData.username}</span>
               </div>
-    </div>);
-  } else {
-    return (<div className={style.userMenu}>
-      <div className={style.authorizated}>
-        <div className={style.inner}>
-          <div className={style.user}>
-            <img className={style.avatar} src={user} alt="user" />
-            <span className={style.name}>Kim Evans</span>
+              <div className={style.logout} title="Log Out" onClick={logout}><img src={icon} alt="icon" /></div>
+            </div>
+            <div className={style.submenu}>
+              <span className={style.text}><Link className={style.submenuLink} to="/add_product">Add new post</Link></span>
+              <span className={style.profile}><Link className={style.submenuLink} to="/profile" >Profile</Link></span>
+            </div>
           </div>
-          <div className={style.logout} title="Log Out" onClick={logout}><img src={icon} alt="icon" /></div>
         </div>
-        <div className={style.submenu}>
-          <span className={style.text}><Link className={style.submenuLink} to="/add_product">Add new post</Link></span>
-          <span className={style.profile}><Link className={style.submenuLink} to="/profile" >Profile</Link></span>
-        </div>
-      </div>
-    </div>
-    );
+      );
+
+    }
   }
 }
 
