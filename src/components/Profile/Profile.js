@@ -13,10 +13,6 @@ import style from './Profile.module.scss';
 
 class Profile extends React.Component {
 
-	componentDidMount() {
-		this.props.fetchUser();
-	}
-
 	render() {
 		const { userData } = this.props
 		if (!userData) {

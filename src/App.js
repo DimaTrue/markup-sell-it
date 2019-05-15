@@ -10,7 +10,6 @@ import ErrorBoundary from './components/CommonComponents/ErrorBoundary/ErrorBoun
 import AddProductForm from './containers/AddProductForm';
 import ProtectedRoute from './containers/ProtectedRoute';
 import ProductItemPage from './containers/ProductItemPage';
-import LogProps from './components/CommonComponents/Hoc/LogProps';
 
 import './styles/App.scss';
 
@@ -25,7 +24,7 @@ class App extends React.Component {
           <ProtectedRoute path='/' exact component={() => <ErrorBoundary><ProductList /> </ErrorBoundary>} />
           <ProtectedRoute path='/product/:id' component={ProductItemPage} />
           <ProtectedRoute path='/add_product' component={() => <AddProductForm />} />
-          <ProtectedRoute path='/profile' component={LogProps(Profile)} />
+          <ProtectedRoute path='/profile' component={Profile} />
           <Route component={() => <ErrorBoundary><WrongPath /></ErrorBoundary>} />
         </Switch>
       </Router>

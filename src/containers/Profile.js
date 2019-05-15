@@ -1,15 +1,12 @@
 import Profile from '../components/Profile/Profile';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 
-import { FETCH_USER } from '../action-types/user';
+import LogProps from '../components/CommonComponents/Hoc/LogProps';
 
 
 const mapStateToProps = state => ({
   userData: state.user.user && state.user.user.data,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchUser: () => dispatch({ type: FETCH_USER })
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default compose(connect(mapStateToProps))(LogProps(Profile));

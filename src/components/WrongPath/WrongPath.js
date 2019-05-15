@@ -33,4 +33,6 @@ class WrongPath extends React.Component {
   }
 }
 
+
+
 export default WrongPath;
