@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-const LogWrapper = (WrappedComponent) => {
-  return class extends React.Component {
+const LogProps = (WrappedComponent) => {
+  return class LogProps extends React.Component {
     render() {
       console.log("props is ---->", this.props)
       return <WrappedComponent {...this.props} />;
@@ -10,5 +10,5 @@ const LogWrapper = (WrappedComponent) => {
   }
 }
 
-const LogProps = (WrappedComponent) => LogWrapper(WrappedComponent);
+
 export default LogProps;

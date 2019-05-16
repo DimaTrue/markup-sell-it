@@ -11,6 +11,7 @@ const initialState = {
   isLoadingOwnProducts: true,
   ownProducts: [],
   errorOwnProducts: null,
+  filterSymbol: '',
 }
 
 export default function (state = initialState, action) {
@@ -35,7 +36,7 @@ export default function (state = initialState, action) {
       return { ...state, isLoadingItem: false, errorItem: action.payload, };
 
     case products.SEARCH_PRODUCTS:
-      return { ...state, isLoading: true, };
+      return { ...state, isLoading: true, filterSymbol: action.payload};
 
     case products.SEARCH_PRODUCTS_SUCCESS:
       return { ...state, data: action.payload, isLoading: false, error: null, };
