@@ -3,23 +3,22 @@ import OwnProductItem from '../../../containers/OwnProductItem';
 
 import style from './OwnProductList.module.scss';
 
-class OwnProductList extends React.Component {
+const OwnProductList = (props) => {
+  const { ownProducts } = props;
+  const ownProductsList = (ownProducts &&
+    ownProducts.length &&
+    ownProducts.map(({ images, theme, pk }, index) => <OwnProductItem key={index}
+      img={images[0]}
+      id={pk}
+      title={theme} />)) ||
+    `Sorry, You haven't own products yet.`
 
-  componentDidMount() {
-    this.props.fetchOwnProducts();
-  }
-
-  render() {
-    const { ownProducts } = this.props;
-    return (
-      <div className={style.OwnProducts}>
-        {(ownProducts &&
-          ownProducts.length &&
-          ownProducts.map(({ images, theme, pk }, index) => <OwnProductItem key={index} img={images[0]} id={pk} title={theme} />)) ||
-          `Sorry, You haven't own products yet.`}
-      </div>
-    );
-  }
+  return (
+    <div className={style.OwnProducts}>
+      {ownProductsList}
+    </div>
+  );
 }
+
 
 export default OwnProductList;

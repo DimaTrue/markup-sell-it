@@ -1,7 +1,7 @@
-import Profile from '../components/Profile/Profile';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import Profile from '../components/Profile/Profile';
 import LogProps from '../components/CommonComponents/Hoc/LogProps';
 
 
