@@ -32,6 +32,7 @@ const Login = () => {
           <Route path='/login/signup' component={FormRegistration} />
           <Route path='/login/success' component={RegistrationSuccess} />
         </Switch>
+        <Link to="/test" title="Go to Test Page">TEST PAGE FOR HOME TASKS</Link>
         <div className={style.copy}>Frontend labs 2017</div>
       </div>
     </div>
