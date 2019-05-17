@@ -1,0 +1,9 @@
+@import '../../../styles/variables.scss';
+
+.btn {
+  @extend %return-btn;
+  }
+  
+  .btn:hover {
+  @extend %hover-return-btn;
+  }

@@ -1,11 +1,12 @@
 import React from 'react';
 
-import errorPic from '../../img/error.gif';
+import { AppContext } from '../../../App';
+import errorPic from '../../../img/error.gif';
 
-import style from './TestErrorBoundary.module.scss';
+import style from './HomeTaskErrorBoundary.module.scss';
 
 
-class TestErrorBoundary extends React.Component {
+class HomeTaskErrorBoundary extends React.Component {
 
   state = {
     hasError: false,
@@ -21,7 +22,6 @@ class TestErrorBoundary extends React.Component {
     })
   }
 
-
   render() {
     const { error, errorInfo } = this.state;
     if (errorInfo !== null) {
@@ -34,8 +34,14 @@ class TestErrorBoundary extends React.Component {
             <br />
             {errorInfo.stackComponent}
           </details>
-          <a href="/test" className={style.link}>Return to test page </a>
-          
+          <AppContext.Consumer>
+            {({ cancelError }) => (
+              <>
+                <button type="button" onClick={cancelError} className={style.btn} >Cancel Error</button>
+              </>
+            )
+            }
+          </AppContext.Consumer>
         </div>
       );
     }
@@ -43,4 +49,4 @@ class TestErrorBoundary extends React.Component {
   }
 }
 
-export default TestErrorBoundary;
+export default HomeTaskErrorBoundary;

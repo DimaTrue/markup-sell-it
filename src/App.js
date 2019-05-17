@@ -7,7 +7,7 @@ import Loading from './components/CommonComponents/Loading/Loading';
 import ProductList from './containers/ProductList';
 import AddProductForm from './containers/AddProductForm';
 import ProductItemPage from './containers/ProductItemPage';
-import TestErrorBoundary from './components/Test/TestErrorBoundary';
+import TestErrorBoundary from './components/HomeTask/HomeTaskErrorBoundary/HomeTaskErrorBoundary';
 
 import './styles/App.scss';
 
@@ -15,16 +15,25 @@ const Login = lazy(() => import('./components/LoginPage/Login/Login'));
 const WrongPath = lazy(() => import('./components/WrongPath/WrongPath'));
 const ErrorBoundary = lazy(() => import('./components/CommonComponents/ErrorBoundary/ErrorBoundary'));
 const ProtectedRoute = lazy(() => import('./containers/ProtectedRoute'));
-const TestComponent = lazy(() =>  {
+const TestComponent = lazy(() => {
   return Promise.all([
-    import('./components/Test/TestComponent'),
+    import('./components/HomeTask/HomeTaskComponent/HomeTaskComponent'),
     new Promise(resolve => setTimeout(resolve, 5000))
   ])
-  .then(([moduleExports]) => moduleExports);
+    .then(([moduleExports]) => moduleExports);
 });
 
+export const AppContext = React.createContext()
 
 class App extends React.Component {
+
+  state = {
+    number: 10,
+    string: 'hello',
+    test: false,
+    throwError: () => this.setState({ test: true }),
+    cancelError: () => this.setState({ test: false })
+  }
 
   render() {
     return (
@@ -36,7 +45,11 @@ class App extends React.Component {
             <ProtectedRoute path='/product/:id' component={ProductItemPage} />
             <ProtectedRoute path='/add_product' component={() => <AddProductForm />} />
             <ProtectedRoute path='/profile' component={Profile} />
-            <Route path='/test' component={() => <TestErrorBoundary><TestComponent /></TestErrorBoundary>} />
+            <Route path='/test' component={() => <AppContext.Provider value={this.state}>
+              <TestErrorBoundary>
+                <TestComponent />
+              </TestErrorBoundary>
+            </AppContext.Provider>} />
             <Route component={() => <ErrorBoundary><WrongPath /></ErrorBoundary>} />
           </Switch>
         </Suspense>
