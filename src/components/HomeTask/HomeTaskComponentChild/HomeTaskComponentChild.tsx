@@ -1,12 +1,20 @@
 import React from 'react';
 import { AppContext } from '../../../App';
 
+interface Values {
+  string?: string;
+  number?: number;
+  test?: boolean; 
+  throwError: () => boolean;
+}
+
 import style from './HomeTaskComponentChild.module.scss';
+
 
 const HomeTaskComponentChild = () => {
   return (
     <AppContext.Consumer>
-      {({ string, number, test, throwError }) => {
+      {({ string, number, test, throwError }: Values)  => {
         if (test) {
           throw new Error('Simulate an error');
         }

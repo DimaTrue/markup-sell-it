@@ -1,5 +1,14 @@
-export const validate = values => {
-  const errors = {}
+interface Values {
+  username?: string;
+  email?: string;
+  password?: string;
+  password1?: string;
+  password2?: string;
+  theme?: string,
+}
+
+export const validate = (values: Values) => {
+  const errors: Values = {};
   if (!values.username) {
     errors.username = 'Required'
   } else if (values.username.length > 15) {
