@@ -1,0 +1,728 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders match snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <UNDEFINED
+        fallback={<Loading />}
+      >
+        <Switch>
+          <Route
+            component={[Function]}
+            path="/login"
+          />
+          <UNDEFINED
+            component={[Function]}
+            exact={true}
+            path="/"
+          />
+          <UNDEFINED
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(ProductItem)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            path="/product/:id"
+          />
+          <UNDEFINED
+            component={[Function]}
+            path="/add_product"
+          />
+          <UNDEFINED
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(LogProps)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            path="/profile"
+          />
+          <Route
+            component={[Function]}
+            path="/test"
+          />
+          <Route
+            component={[Function]}
+          />
+        </Switch>
+      </UNDEFINED>,
+      "history": Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <Switch>
+          <Route
+            component={[Function]}
+            path="/login"
+          />
+          <UNDEFINED
+            component={[Function]}
+            exact={true}
+            path="/"
+          />
+          <UNDEFINED
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(ProductItem)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            path="/product/:id"
+          />
+          <UNDEFINED
+            component={[Function]}
+            path="/add_product"
+          />
+          <UNDEFINED
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(LogProps)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            path="/profile"
+          />
+          <Route
+            component={[Function]}
+            path="/test"
+          />
+          <Route
+            component={[Function]}
+          />
+        </Switch>,
+        "fallback": <Loading />,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Route
+              component={[Function]}
+              path="/login"
+            />,
+            <UNDEFINED
+              component={[Function]}
+              exact={true}
+              path="/"
+            />,
+            <UNDEFINED
+              component={
+                Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProductItem)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                }
+              }
+              path="/product/:id"
+            />,
+            <UNDEFINED
+              component={[Function]}
+              path="/add_product"
+            />,
+            <UNDEFINED
+              component={
+                Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(LogProps)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                }
+              }
+              path="/profile"
+            />,
+            <Route
+              component={[Function]}
+              path="/test"
+            />,
+            <Route
+              component={[Function]}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "/login",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "component": [Function],
+              "exact": true,
+              "path": "/",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": Object {
+              "$$typeof": Symbol(react.lazy),
+              "_ctor": [Function],
+              "_result": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(ProtectedRoute)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
+              "_status": 1,
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "component": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(ProductItem)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
+              "path": "/product/:id",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": Object {
+              "$$typeof": Symbol(react.lazy),
+              "_ctor": [Function],
+              "_result": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(ProtectedRoute)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
+              "_status": 1,
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "component": [Function],
+              "path": "/add_product",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": Object {
+              "$$typeof": Symbol(react.lazy),
+              "_ctor": [Function],
+              "_result": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(ProtectedRoute)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
+              "_status": 1,
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "component": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(LogProps)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
+              "path": "/profile",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": Object {
+              "$$typeof": Symbol(react.lazy),
+              "_ctor": [Function],
+              "_result": Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(ProtectedRoute)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
+              "_status": 1,
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "/test",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": Symbol(react.suspense),
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <UNDEFINED
+          fallback={<Loading />}
+        >
+          <Switch>
+            <Route
+              component={[Function]}
+              path="/login"
+            />
+            <UNDEFINED
+              component={[Function]}
+              exact={true}
+              path="/"
+            />
+            <UNDEFINED
+              component={
+                Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProductItem)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                }
+              }
+              path="/product/:id"
+            />
+            <UNDEFINED
+              component={[Function]}
+              path="/add_product"
+            />
+            <UNDEFINED
+              component={
+                Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(LogProps)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                }
+              }
+              path="/profile"
+            />
+            <Route
+              component={[Function]}
+              path="/test"
+            />
+            <Route
+              component={[Function]}
+            />
+          </Switch>
+        </UNDEFINED>,
+        "history": Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <Switch>
+            <Route
+              component={[Function]}
+              path="/login"
+            />
+            <UNDEFINED
+              component={[Function]}
+              exact={true}
+              path="/"
+            />
+            <UNDEFINED
+              component={
+                Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProductItem)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                }
+              }
+              path="/product/:id"
+            />
+            <UNDEFINED
+              component={[Function]}
+              path="/add_product"
+            />
+            <UNDEFINED
+              component={
+                Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(LogProps)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                }
+              }
+              path="/profile"
+            />
+            <Route
+              component={[Function]}
+              path="/test"
+            />
+            <Route
+              component={[Function]}
+            />
+          </Switch>,
+          "fallback": <Loading />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Route
+                component={[Function]}
+                path="/login"
+              />,
+              <UNDEFINED
+                component={[Function]}
+                exact={true}
+                path="/"
+              />,
+              <UNDEFINED
+                component={
+                  Object {
+                    "$$typeof": Symbol(react.memo),
+                    "WrappedComponent": [Function],
+                    "compare": null,
+                    "displayName": "Connect(ProductItem)",
+                    "type": [Function],
+                    Symbol(Symbol.hasInstance): [Function],
+                  }
+                }
+                path="/product/:id"
+              />,
+              <UNDEFINED
+                component={[Function]}
+                path="/add_product"
+              />,
+              <UNDEFINED
+                component={
+                  Object {
+                    "$$typeof": Symbol(react.memo),
+                    "WrappedComponent": [Function],
+                    "compare": null,
+                    "displayName": "Connect(LogProps)",
+                    "type": [Function],
+                    Symbol(Symbol.hasInstance): [Function],
+                  }
+                }
+                path="/profile"
+              />,
+              <Route
+                component={[Function]}
+                path="/test"
+              />,
+              <Route
+                component={[Function]}
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "path": "/login",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "component": [Function],
+                "exact": true,
+                "path": "/",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProtectedRoute)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                },
+                "_status": 1,
+              },
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "component": Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProductItem)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                },
+                "path": "/product/:id",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProtectedRoute)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                },
+                "_status": 1,
+              },
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "component": [Function],
+                "path": "/add_product",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProtectedRoute)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                },
+                "_status": 1,
+              },
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "component": Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(LogProps)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                },
+                "path": "/profile",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": Object {
+                  "$$typeof": Symbol(react.memo),
+                  "WrappedComponent": [Function],
+                  "compare": null,
+                  "displayName": "Connect(ProtectedRoute)",
+                  "type": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                },
+                "_status": 1,
+              },
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "path": "/test",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": Symbol(react.suspense),
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

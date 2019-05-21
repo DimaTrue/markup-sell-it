@@ -49,6 +49,7 @@ class FormRegistration extends React.Component {
           label="Confirm the Password"
         />
         <button
+          id="btn"
           className={style.formButton}
           type="submit"
           disabled={submitting}
