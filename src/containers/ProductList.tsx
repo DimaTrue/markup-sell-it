@@ -1,25 +1,29 @@
 import React from 'react';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import * as Redux from 'redux';
 
 import ProductList from '../components/ProductListPage/ProductList/ProductList';
 
-import { FETCH_PRODUCTS } from '../action-types/products';
+import { loadProductsRequest } from '../actions/products';
+import { ApplicationState } from '../store/store';
 import LoadingHoc from '../components/CommonComponents/Hoc/LoadingHoc';
 
 
-interface Values {
-  fetchProducts: any;
-  isLoading: any;
+interface StateProps {
+  isLoading: boolean;
 }
 
-class Products extends React.Component {
+interface DispatchProps {
+  loadProductsRequest(): void;
+}
 
+type Props = StateProps & DispatchProps
 
+class Products extends React.Component<Props> {
 
   componentDidMount() {
-    const { fetchProducts } = this.props;
-    fetchProducts();
+    const { loadProductsRequest } = this.props;
+    loadProductsRequest();
   }
   render() {
     const { isLoading } = this.props;
@@ -28,14 +32,15 @@ class Products extends React.Component {
     )
   }
 }
-const mapStateToProps = (state: any) => ({
+
+const mapStateToProps = (state: ApplicationState) => ({
   data: state.products.data,
   isLoading: state.products.isLoading,
   error: state.products.error,
 });
 
-const mapDispatchToProps = (dispatch: Redux.Dispatch<any>) => ({
-  fetchProducts: () => dispatch({ type: FETCH_PRODUCTS }),
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  loadProductsRequest: () => dispatch(loadProductsRequest()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

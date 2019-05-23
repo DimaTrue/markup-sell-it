@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 
 import OwnProductItem from '../components/CommonComponents/OwnProductItem/OwnProductItem';
 
-import { DELETE_PRODUCT_ITEM } from '../action-types/products';
+import { ProductsActionTypes } from '../store/products/types'
 
 
 const mapDispatchToProps = dispatch => ({
-  deleteProductItem: (itemIndex) => dispatch({ type: DELETE_PRODUCT_ITEM, payload: itemIndex })
+  deleteProductItem: (itemIndex) => dispatch({ type: ProductsActionTypes.DELETE_PRODUCT_ITEM, payload: itemIndex })
 })
 
 export default connect(null, mapDispatchToProps)(OwnProductItem); 

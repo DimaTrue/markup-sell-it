@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import OwnProductList from '../components/CommonComponents/OwnProductList/OwnProductList';
 import LoadingHoc from '../components/CommonComponents/Hoc/LoadingHoc';
 
-import { FETCH_OWN_PRODUCTS } from '../action-types/products';
+import { ProductsActionTypes } from '../store/products/types'
 
 
 class OwnProducts extends React.Component {
@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchOwnProducts: () => dispatch({ type: FETCH_OWN_PRODUCTS }),
+  fetchOwnProducts: () => dispatch({ type: ProductsActionTypes.FETCH_OWN_PRODUCTS }),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(OwnProducts);

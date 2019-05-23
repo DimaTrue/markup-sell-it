@@ -1,6 +1,7 @@
 import { put, takeEvery, call, all } from 'redux-saga/effects';
 
-import * as types from '../action-types/products';
+import { ProductsActionTypes } from '../store/products/types';
+import { loadProductsRequest, loadProductsSuccess, loadProductsFailure, loadProductItemSuccess, loadProductItemFailure, } from '../actions/products';
 import {
 	getProducts,
 	getProductItem,
@@ -12,84 +13,85 @@ import {
 
 
 export function* watchFetchProducts() {
-	yield takeEvery(types.FETCH_PRODUCTS, fetchProducts);
+	yield takeEvery(loadProductsRequest, fetchProducts);
 }
 
 export function* watchFetchProductItem() {
-	yield takeEvery(types.FETCH_PRODUCT_ITEM, fetchProductItem);
+	yield takeEvery(ProductsActionTypes.FETCH_PRODUCT_ITEM, fetchProductItem);
 }
 
 export function* watchSearchProducts() {
-	yield takeEvery(types.SEARCH_PRODUCTS, searchProducts);
+	yield takeEvery(ProductsActionTypes.SEARCH_PRODUCTS, searchProducts);
 }
 
 export function* watchAddProduct() {
-	yield takeEvery(types.PRODUCT_ADD, addProduct);
+	yield takeEvery(ProductsActionTypes.PRODUCT_ADD, addProduct);
 }
 
 export function* watchFetchOwnProducts() {
-	yield takeEvery(types.FETCH_OWN_PRODUCTS, fetchOwnProducts);
+	yield takeEvery(ProductsActionTypes.FETCH_OWN_PRODUCTS, fetchOwnProducts);
 }
 
 export function* watchDeleteProductItem() {
-	yield takeEvery(types.DELETE_PRODUCT_ITEM, deleteProductItem);
+	yield takeEvery(ProductsActionTypes.DELETE_PRODUCT_ITEM, deleteProductItem);
 }
 
 export function* fetchProducts() {
 	try {
 		const result = yield call(getProducts);
-		yield put({ type: types.FETCH_PRODUCTS_SUCCESS, payload: result.data.data, meta: { printLog: true } });
+		yield put(loadProductsSuccess(result.data.data));
 	} catch (error) {
-		yield put({ type: types.FETCH_PRODUCTS_FAILURE, payload: error });
+		yield put(loadProductsFailure(error));
 	}
 }
 
 // payload is a value of this.props.computedMatch.params.id of current product, files from container/ProductItemPage 
 
-export function* fetchProductItem({ payload }) {
+export function* fetchProductItem({payload}) {
 	try {
-		const result = yield getProductItem(payload);
-		yield put({ type: types.FETCH_PRODUCT_ITEM_SUCCESS, payload: result.data, });
+		const{ itemIndex } = payload;
+		const result = yield  getProductItem(itemIndex);
+		yield put(loadProductItemSuccess(result.data));
 	} catch (error) {
-		yield put({ type: types.FETCH_PRODUCT_ITEM_FAILURE, payload: error });
+		yield put(loadProductItemFailure(error));
 	}
 }
 
 export function* searchProducts({ payload }) {
 	try {
 		const result = yield call(getSearchProducts, payload);
-		yield put({ type: types.SEARCH_PRODUCTS_SUCCESS, payload: result.data.data, });
+		yield put({ type: ProductsActionTypes.SEARCH_PRODUCTS_SUCCESS, payload: result.data.data, });
 	} catch (error) {
-		yield put({ type: types.SEARCH_PRODUCTS_FAILURE, payload: error, });
+		yield put({ type: ProductsActionTypes.SEARCH_PRODUCTS_FAILURE, payload: error, });
 	}
 }
 
 export function* addProduct(params) {
 	try {
 		const result = yield postProductItem(params.payload);
-		yield put({ type: types.PRODUCT_ADD_SUCCESS, data: result.data });
+		yield put({ type: ProductsActionTypes.PRODUCT_ADD_SUCCESS, data: result.data });
 		alert('Your product has added successfully!');
 	} catch (error) {
-		yield put({ type: types.PRODUCT_ADD_ERROR, payload: error });
+		yield put({ type: ProductsActionTypes.PRODUCT_ADD_ERROR, payload: error });
 	}
 }
 
 export function* fetchOwnProducts() {
 	try {
 		const result = yield call(getOwnProducts);
-		yield put({ type: types.FETCH_OWN_PRODUCTS_SUCCESS, payload: result.data.data, });
+		yield put({ type: ProductsActionTypes.FETCH_OWN_PRODUCTS_SUCCESS, payload: result.data.data, });
 	} catch (error) {
-		yield put({ type: types.FETCH_OWN_PRODUCTS_FAILURE, payload: error });
+		yield put({ type: ProductsActionTypes.FETCH_OWN_PRODUCTS_FAILURE, payload: error });
 	}
 }
 
 export function* deleteProductItem({ payload }) {
 	try {
 		yield removeProductItem(payload);
-		yield put({ type: types.DELETE_PRODUCT_ITEM_SUCCESS, });
+		yield put({ type: ProductsActionTypes.DELETE_PRODUCT_ITEM_SUCCESS, });
 		yield call(fetchOwnProducts);
 	} catch (error) {
-		yield put({ type: types.DELETE_PRODUCT_ITEM_FAILURE, payload: error });
+		yield put({ type: ProductsActionTypes.DELETE_PRODUCT_ITEM_FAILURE, payload: error });
 	}
 }
 

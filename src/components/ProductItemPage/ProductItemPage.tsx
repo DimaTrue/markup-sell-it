@@ -6,12 +6,13 @@ import Header from '../CommonComponents/Header/Header';
 import Footer from '../CommonComponents/Footer/Footer';
 
 import item from '../../img/item.jpg';
+import { Product } from '../../store/products/types';
 
 import style from './ProductItemPage.module.scss';
 
 
-const ProductItemPage = (props) => {
-  const { productItem } = props;
+const ProductItemPage = (props: any) => {
+  const productItem: Product = props.productItem;
   return (
     <div>
       <Header />
@@ -19,12 +20,14 @@ const ProductItemPage = (props) => {
         <div className={style.container}>
           <div className={style.product}>
             <div>
-              <img className={style.pic} src={productItem.images.length ? productItem.images[0].file : item} alt="product" />
+              <img className={style.pic} src={productItem && productItem.images && productItem.images.length ? productItem.images[0].file : item} alt="product" />
             </div>
             <div className={style.description}>
               <h2 className={style.title}>{productItem.theme || `Unknown`}</h2>
               <div>
-                <strong>from</strong> <span className={style.userName} >{productItem.owner.username}</span> <span className={style.price}>Price: {productItem.price}$</span>
+                <strong>from</strong> <span className={style.userName} >
+                {productItem && productItem.owner && productItem.owner.username}
+                </span> <span className={style.price}>Price: {productItem.price}$</span>
               </div>
               <p className={style.text}>{productItem.text || `Some description text from WYSIWYG editer`}</p>
               <div>

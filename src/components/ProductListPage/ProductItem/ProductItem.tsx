@@ -7,11 +7,14 @@ import item from '../../../img/item.jpg';
 
 import style from './ProductItem.module.scss';
 
-
+interface Props {
+  img?: any;
+  id?: number;
+  title?: string
+}
 const DEFAULT_PIC = item;
 
-const ProductItem = ({ img, id, title }) => (
-
+const ProductItem = ({ img, id, title }: Props) => (
   <Link className={style.link} to={`/product/${id}`}>
     <div className={style.list}>
       <div>

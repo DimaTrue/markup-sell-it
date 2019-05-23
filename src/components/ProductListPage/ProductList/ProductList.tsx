@@ -4,12 +4,14 @@ import Proptypes from 'prop-types';
 import Header from '../../CommonComponents/Header/Header';
 import Footer from '../../CommonComponents/Footer/Footer';
 import ProductItem from '../ProductItem/ProductItem';
+import { ProductsState, Product } from '../../../store/products/types';
 
 import style from './ProductList.module.scss';
 
 
-const ProductList = (props) => {
-  const products = props.data && props.data.map(({ images, theme, pk }, index) => <ProductItem key={index} img={images[0]} id={pk} title={theme} />);
+const ProductList = (props: ProductsState) => {
+  const data : Product[] = props.data;
+  const products = data && data.map(({ images, theme, pk }) => <ProductItem key={pk} img={images && images[0]} id={pk} title={theme} />);
   return (
     <Fragment>
       <Header />
