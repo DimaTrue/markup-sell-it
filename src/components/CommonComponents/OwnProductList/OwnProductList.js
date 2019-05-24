@@ -3,6 +3,7 @@ import OwnProductItem from '../../../containers/OwnProductItem';
 
 import style from './OwnProductList.module.scss';
 
+
 const OwnProductList = (props) => {
   const { ownProducts } = props;
   const ownProductsList = (ownProducts &&
@@ -19,6 +20,5 @@ const OwnProductList = (props) => {
     </div>
   );
 }
-
 
 export default OwnProductList;

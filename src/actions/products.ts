@@ -1,4 +1,4 @@
-import { ProductsActionTypes, Product } from '../store/products/types'
+import { ProductsActionTypes, Product } from '../store/products/types';
 import { action } from 'typesafe-actions';
 
 export const searchProducts = (value: string) => {

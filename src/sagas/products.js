@@ -1,7 +1,7 @@
 import { put, takeEvery, call, all } from 'redux-saga/effects';
 
 import { ProductsActionTypes } from '../store/products/types';
-import { loadProductsRequest, loadProductsSuccess, loadProductsFailure, loadProductItemSuccess, loadProductItemFailure, } from '../actions/products';
+import { loadProductsSuccess, loadProductsFailure, loadProductItemSuccess, loadProductItemFailure, } from '../actions/products';
 import {
 	getProducts,
 	getProductItem,
@@ -13,7 +13,7 @@ import {
 
 
 export function* watchFetchProducts() {
-	yield takeEvery(loadProductsRequest, fetchProducts);
+	yield takeEvery(ProductsActionTypes.FETCH_PRODUCTS, fetchProducts);
 }
 
 export function* watchFetchProductItem() {
@@ -47,10 +47,10 @@ export function* fetchProducts() {
 
 // payload is a value of this.props.computedMatch.params.id of current product, files from container/ProductItemPage 
 
-export function* fetchProductItem({payload}) {
+export function* fetchProductItem({ payload }) {
 	try {
-		const{ itemIndex } = payload;
-		const result = yield  getProductItem(itemIndex);
+		const { itemIndex } = payload;
+		const result = yield getProductItem(itemIndex);
 		yield put(loadProductItemSuccess(result.data));
 	} catch (error) {
 		yield put(loadProductItemFailure(error));

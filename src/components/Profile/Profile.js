@@ -11,61 +11,47 @@ import userPic from '../../img/defaultAvatar.jpg';
 import style from './Profile.module.scss';
 
 
-class Profile extends React.Component {
-
-	render() {
-		const { userData } = this.props
-		if (!userData) {
-			return (
-				<Fragment>
-					<Header />
-					<Loading />
-					<Footer />
-				</Fragment>
-			)
-		} else {
-			return (
-				<div>
-					<Header />
-					<div className={style.section}>
-						<div className={style.container}>
-							<div className={style.wrap}>
-								<div className={style.polaroid}>
-									<p><strong>{userData.username || 'unknown'}</strong></p>
-									<img className={style.pic} src={userPic} alt="user" />
-								</div>
-								<div className={style.info}>
-									<div className={style.box}>
-										<i>Email: </i>
-										<i>First name:  </i>
-										<i>Last name: </i>
-										<i>Location: </i>
-										<i>Color scheme: </i>
-										<i>Language: </i>
-									</div>
-									<div className={style.box}>
-										<strong>{userData.email || 'unknown'}</strong>
-										<strong>{userData.first_name || 'unknown'}</strong>
-										<strong>{userData.last_name || 'unknown'}</strong>
-										<strong>{userData.location || 'unknown'}</strong>
-										<strong>{userData.color_scheme || 'unknown'}</strong>
-										<strong>{userData.language || 'unknown'}</strong>
-									</div>
-								</div>
+const Profile = (props) => {
+	const { userData } = props
+	if (!userData) {
+		return (
+			<Fragment>
+				<Header />
+				<Loading />
+				<Footer />
+			</Fragment>
+		)
+	} else {
+		return (
+			<div>
+				<Header />
+				<div className={style.section}>
+					<div className={style.container}>
+						<div className={style.wrap}>
+							<div className={style.polaroid}>
+								<p><strong>{userData.username || 'unknown'}</strong></p>
+								<img className={style.pic} src={userPic} alt="user" />
 							</div>
-							<h3>Own products: </h3>
-							<OwnProductList />
-							<div className={style.lowerLink}>
-								<Link className={style.link} to='/' >Return to Product List</Link>
+							<div className={style.info}>
+								<div className={style.box}><i>Email: </i> <strong>{userData.email || 'unknown'}</strong></div>
+								<div className={style.box}><i>First name:  </i> <strong>{userData.first_name || 'unknown'}</strong></div>
+								<div className={style.box}><i>Last name: </i> <strong>{userData.last_name || 'unknown'}</strong></div>
+								<div className={style.box}><i>Location: </i> <strong>{userData.location || 'unknown'}</strong></div>
+								<div className={style.box}><i>Color scheme: </i> <strong>{userData.color_scheme || 'unknown'}</strong></div>
+								<div className={style.box}><i>Language: </i> <strong>{userData.language || 'unknown'}</strong></div>
 							</div>
 						</div>
+						<h3>Own products: </h3>
+						<OwnProductList />
+						<div className={style.lowerLink}>
+							<Link className={style.link} to='/' >Return to Product List</Link>
+						</div>
 					</div>
-					<Footer />
 				</div>
-			);
-		}
+				<Footer />
+			</div>
+		);
 	}
 }
 
 export default Profile;
-

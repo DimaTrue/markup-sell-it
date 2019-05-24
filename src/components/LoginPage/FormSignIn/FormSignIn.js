@@ -8,50 +8,30 @@ import { RenderField } from '../../../utils/redux-form/RenderField/RenderField';
 import style from './FormSignIn.module.scss';
 
 
-class FormSignIn extends React.Component {
-
-  login = async () => {
-    const { signIn, params } = this.props;
-    signIn(params.values);
-  };
-
-  componentDidMount() {
-    if (this.props.isLogin) {
-      this.props.history.push('/');
-    }
-  }
-
-  componentWillUpdate(nextProps) {
-    if (nextProps.isLogin) {
-      this.props.history.push('/');
-    }
-  }
-
-  render() {
-    const { handleSubmit, submitting, } = this.props;
-    return (
-      <form className={style.form} onSubmit={handleSubmit(this.login)}>
-        <Field
-          name="email"
-          component={RenderField}
-          type="email"
-          label="Email"
-        />
-        <Field
-          name="password"
-          component={RenderField}
-          type="password"
-          label="Password"
-        />
-        <button className={style.formButton}
-          type="submit"
-          disabled={submitting}
-        >
-          Login
+const FormSignIn = (props) => {
+  const { handleSubmit, submitting, } = props;
+  return (
+    <form className={style.form} onSubmit={handleSubmit}>
+      <Field
+        name="email"
+        component={RenderField}
+        type="email"
+        label="Email"
+      />
+      <Field
+        name="password"
+        component={RenderField}
+        type="password"
+        label="Password"
+      />
+      <button className={style.formButton}
+        type="submit"
+        disabled={submitting}
+      >
+        Login
         </ button>
-      </form>
-    );
-  }
+    </form>
+  );
 }
 
 FormSignIn.propTypes = {
@@ -59,9 +39,7 @@ FormSignIn.propTypes = {
   submitting: PropTypes.bool,
 }
 
-FormSignIn = reduxForm({
+export default reduxForm({
   form: 'authorization',
   validate,
-})(FormSignIn)
-
-export default FormSignIn;
+})(FormSignIn);
