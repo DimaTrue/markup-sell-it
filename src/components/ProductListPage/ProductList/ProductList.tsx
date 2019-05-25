@@ -10,7 +10,7 @@ import style from './ProductList.module.scss';
 
 
 const ProductList = (props: ProductsState) => {
-  const data : Product[] = props.data;
+  const data: Product[] = props.data;
   const products = data && data.map(({ images, theme, pk }) => <ProductItem key={pk} img={images && images[0]} id={pk} title={theme} />);
   return (
     <Fragment>

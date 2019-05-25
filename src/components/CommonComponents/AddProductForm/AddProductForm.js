@@ -3,8 +3,8 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Header from '../../CommonComponents/Header/Header';
-import Footer from '../../CommonComponents/Footer/Footer';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 import { RenderField } from '../../../utils/redux-form/RenderField/RenderField';
 import { validate } from '../../../utils/redux-form/validate';

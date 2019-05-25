@@ -1,7 +1,9 @@
 import { put, takeEvery, call, all } from 'redux-saga/effects';
 
 import { ProductsActionTypes } from '../store/products/types';
-import { loadProductsSuccess, loadProductsFailure, loadProductItemSuccess, loadProductItemFailure, } from '../actions/products';
+
+import * as actions from '../actions/products';
+
 import {
 	getProducts,
 	getProductItem,
@@ -39,59 +41,59 @@ export function* watchDeleteProductItem() {
 export function* fetchProducts() {
 	try {
 		const result = yield call(getProducts);
-		yield put(loadProductsSuccess(result.data.data));
+		yield put(actions.loadProductsSuccess(result.data.data));
 	} catch (error) {
-		yield put(loadProductsFailure(error));
+		yield put(actions.loadProductsFailure(error));
 	}
 }
 
 // payload is a value of this.props.computedMatch.params.id of current product, files from container/ProductItemPage 
 
-export function* fetchProductItem({ payload }) {
+export function* fetchProductItem({ payload }: any) {
 	try {
 		const { itemIndex } = payload;
 		const result = yield getProductItem(itemIndex);
-		yield put(loadProductItemSuccess(result.data));
+		yield put(actions.loadProductItemSuccess(result.data));
 	} catch (error) {
-		yield put(loadProductItemFailure(error));
+		yield put(actions.loadProductItemFailure(error));
 	}
 }
 
-export function* searchProducts({ payload }) {
+export function* searchProducts({ payload }: any) {
 	try {
 		const result = yield call(getSearchProducts, payload);
-		yield put({ type: ProductsActionTypes.SEARCH_PRODUCTS_SUCCESS, payload: result.data.data, });
+		yield put(actions.findProductsSuccess(result.data.data));
 	} catch (error) {
-		yield put({ type: ProductsActionTypes.SEARCH_PRODUCTS_FAILURE, payload: error, });
+		yield put(actions.findProductsFailure(error));
 	}
 }
 
-export function* addProduct(params) {
+export function* addProduct(params: any) {
 	try {
 		const result = yield postProductItem(params.payload);
-		yield put({ type: ProductsActionTypes.PRODUCT_ADD_SUCCESS, data: result.data });
+		yield put(actions.createProductSuccess(result.data));
 		alert('Your product has added successfully!');
 	} catch (error) {
-		yield put({ type: ProductsActionTypes.PRODUCT_ADD_ERROR, payload: error });
+		yield put(actions.createProductFailure(error));
 	}
 }
 
 export function* fetchOwnProducts() {
 	try {
 		const result = yield call(getOwnProducts);
-		yield put({ type: ProductsActionTypes.FETCH_OWN_PRODUCTS_SUCCESS, payload: result.data.data, });
+		yield put(actions.loadOwnProductSuccess(result.data.data));
 	} catch (error) {
-		yield put({ type: ProductsActionTypes.FETCH_OWN_PRODUCTS_FAILURE, payload: error });
+		yield put(actions.loadOwnProductFailure(error));
 	}
 }
 
-export function* deleteProductItem({ payload }) {
+export function* deleteProductItem({ payload }: any) {
 	try {
 		yield removeProductItem(payload);
-		yield put({ type: ProductsActionTypes.DELETE_PRODUCT_ITEM_SUCCESS, });
+		yield put(actions.removeProductItemSuccess());
 		yield call(fetchOwnProducts);
 	} catch (error) {
-		yield put({ type: ProductsActionTypes.DELETE_PRODUCT_ITEM_FAILURE, payload: error });
+		yield put(actions.removeProductItemFailure(error));
 	}
 }
 

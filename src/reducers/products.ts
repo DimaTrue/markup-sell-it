@@ -49,7 +49,7 @@ const reducer: Reducer<ProductsState> = (state = initialState, action) => {
       return { ...state, };
 
     case ProductsActionTypes.PRODUCT_ADD_SUCCESS:
-      return { ...state, data: action.payload, };
+      return { ...state, data: [...state.data, action.payload], };
 
     case ProductsActionTypes.PRODUCT_ADD_ERROR:
       return { ...state, error: action.payload, };

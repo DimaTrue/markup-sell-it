@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import AddProductForm from '../components/CommonComponents/AddProductForm/AddProductForm';
 
-import { ProductsActionTypes } from '../store/products/types'
+import { createProductRequest } from '../actions/products';
 
 
 class AddProduct extends React.Component {
@@ -22,7 +22,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addProduct: (params) => dispatch({ type: ProductsActionTypes.PRODUCT_ADD, payload: params })
+  addProduct: (params) => dispatch(createProductRequest(params))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
